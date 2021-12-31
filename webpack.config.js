@@ -5,7 +5,7 @@ const devMode = process.env.NODE_ENV !== "production";
 module.exports = {
   entry: './client/index.js',
   output: {
-    path: path.resolve(__dirname, 'build'),
+    path: path.resolve(__dirname, 'client/build'),
     publicPath: '/build',
     filename: 'bundle.js',
   },
