@@ -1,19 +1,35 @@
-const path = require('path');
-// const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+import path, {dirname} from 'path';
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 const devMode = process.env.NODE_ENV !== "production";
 
-module.exports = {
+//added this to resolve ES6 issues with __dirname
+const __dirname = dirname(fileURLToPath(import.meta.url));
+
+//commonjs
+// module.exports = {
+
+// ES6
+export default {
+  //first file to pull all for bundle
   entry: './client/index.js',
+
+  //output of bundle
   output: {
+    //bath needs to be build inside where the index.js references
     path: path.resolve(__dirname, 'client/build'),
     publicPath: '/build',
     filename: 'bundle.js',
   },
+
+  //takes node.env from node.js script
   mode: process.env.NODE_ENV,
   module: {
     rules: [
       {
-        test: /\.jsx?/,
+        //takes all js/jsx files into the bundle
+        test: /\.jsx?$/,
         exclude: /(node_modules)/,
         use: {
             loader: 'babel-loader',
@@ -23,6 +39,7 @@ module.exports = {
           }
       },
       {
+        //takes all sass and scss files into bundle
         test: /\.s[ac]ss$/i,
         use: [
           // // Creates `style` nodes from JS strings
@@ -36,15 +53,19 @@ module.exports = {
 
     ]
   },
-//   plugins: [
-//     new HtmlWebpackPlugin({
-//       template: './index.html'
-//     })
-//   ],
+  //still not 100% sure what this does
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './index.html'
+    })
+  ],
+  //sets up dev environment
   devServer: {
+    //proxy for diff front/back end servers
     proxy: {
       '/': 'http://localhost:3000',
     },
+    //sets up the path for the static files
     static: {
       directory: path.join(__dirname),
     },
