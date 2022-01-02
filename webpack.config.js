@@ -1,11 +1,13 @@
 
 import path, {dirname} from 'path';
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+import { fileURLToPath } from 'url';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
 
 const devMode = process.env.NODE_ENV !== "production";
 
 //added this to resolve ES6 issues with __dirname
 const __dirname = dirname(fileURLToPath(import.meta.url));
+
 
 //commonjs
 // module.exports = {
@@ -56,7 +58,7 @@ export default {
   //still not 100% sure what this does
   plugins: [
     new HtmlWebpackPlugin({
-      template: './index.html'
+      template: './client/index.html'
     })
   ],
   //sets up dev environment
