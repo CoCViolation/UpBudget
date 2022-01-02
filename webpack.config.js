@@ -5,7 +5,8 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 
 const devMode = process.env.NODE_ENV !== "production";
 
-//added this to resolve ES6 issues with __dirname
+//added this to resolve ES6 issues with __dirname. See below:
+// https://nodejs.org/api/esm.html#no-__filename-or-__dirname
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 
@@ -19,7 +20,7 @@ export default {
 
   //output of bundle
   output: {
-    //bath needs to be build inside where the index.js references
+    //path needs to be build inside where the index.js references
     path: path.resolve(__dirname, 'client/build'),
     publicPath: '/build',
     filename: 'bundle.js',
@@ -73,5 +74,10 @@ export default {
     },
     compress: true,
     port: 8080,
+  },
+
+  //this resolves file extensions without having to specify them in the import lines
+  resolve: {
+    extensions: ['.js', '.jsx', '...']
   },
 };

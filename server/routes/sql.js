@@ -11,7 +11,7 @@ router.use((req, res, next) => {
 })
 
 //get from the specific page
-router.get('/', sqlController.getUser, (req, res)=> {
+router.get('/', sqlController.getUser, sqlController.getTransactions, (req, res)=> {
     res.status(200).send('');
 })
 
