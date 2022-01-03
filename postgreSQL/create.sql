@@ -1,8 +1,14 @@
 -- create user tables
+ CREATE TABLE federated_credentials (
+    _id             serial primary key, 
+    google_id       int, 
+    subject         int
+);
 CREATE TABLE users (
     _id             serial primary key,
     name            varchar(80),
-    OauthKey        varchar(256)
+    OauthKey        varchar(256),
+    google_id       int
 );
 
 -- set not nulls
