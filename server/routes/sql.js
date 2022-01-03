@@ -11,8 +11,16 @@ router.use((req, res, next) => {
 })
 
 //get from the specific page
-router.get('/', sqlController.getUser, sqlController.getTransactions, (req, res)=> {
-    res.status(200).send('');
+router.get('/', sqlController.getUser, sqlController.getTransactions, sqlController.getCategories, sqlController.getCategoryBudgets, (req, res)=> {
+    const userData = {
+        'userData': res.locals.userData,
+        'transactions': res.locals.transactions,
+        'categories': res.locals.categories,
+        'categoryBudget': res.locals.categoryBudgets
+    }
+    // console.log(userData);
+    console.log('sending data back');
+    res.status(200).json(userData);
 })
 
 export default router;
