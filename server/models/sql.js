@@ -1,12 +1,13 @@
 import pkg from 'pg';
 const {Pool} = pkg;
 
-// In DB_URL.js have the following:
-// const PG_URI = 'POSTGRESQL URL HERE';
-// export default PG_URI
-import PG_URI from '../../DB_URL'
+//import environment variables
+import * as dotenv from 'dotenv'
+dotenv.config()
+const {PG_URI} = process.env;
 
-// create a new pool here using the connection string above
+
+//creates a new pool here using the env variable
 const pool = new Pool({
   connectionString: PG_URI
 });
