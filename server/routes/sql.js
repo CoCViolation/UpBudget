@@ -1,5 +1,4 @@
 import express from 'express';
-import path from 'path';
 import sqlController from '../controllers/sqlController.js';
 
 const router = express.Router();
@@ -7,7 +6,20 @@ const router = express.Router();
 //this will be run before any of the others
 router.use((req, res, next) => {
     console.log(`  using sqlRouter`);
-    next();
+
+    // checks to see if it has property passport. 
+    // passport.hasownproperty gets a middleware error for some reason
+    const hasProperty = req.session.passport;
+    console.log(hasProperty);
+    
+    // if it does not have the property passport, it's because it doesn't exist or it's already timed out
+    if (hasProperty === undefined) {
+        res.status(200).send('Unauthorized Entry');
+    }
+    //if it exists due to logging in and within the cookies timeframe, it goes to next.
+    else {
+        next();
+    }
 })
 
 //get from the specific page
