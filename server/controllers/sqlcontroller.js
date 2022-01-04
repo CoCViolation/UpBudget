@@ -1,4 +1,4 @@
-import query from '../models/sql'
+import query from '../models/sql.js'
 import {userColumns, transactionsColumns, categoriesColumns, categoryBudgetsColumns} from '../data/queryColumns.js';
 
 const controller = {}
