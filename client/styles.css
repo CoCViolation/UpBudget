@@ -1,9 +1,44 @@
-p{
-    margin: 10px 0 !important;
+p {
+  margin: 10px 0 !important;
 }
 
- .login-container {
-     width: 400px;
-     margin-top: 50px;
-     text-align: center;
- }
+.login-container {
+  width: 400px;
+  margin-top: 50px;
+  text-align: center;
+}
+
+.budget-container {
+  width: 100vh;
+  height: 100vh;
+  font-size: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 50px 1fr 1fr;
+
+  gap: 10px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.budget-container div {
+  padding: 10px;
+  border: 1px solid rgb(93, 159, 230);
+}
+
+.header {
+  grid-column-start: 1;
+  grid-column-end: 4;
+}
+
+.header1 {
+  grid-area: header1;
+}
+.header2 {
+  grid-area: header2;
+}
+
+.content-large {
+  grid-row-start: 2;
+  grid-row-end: span 2;
+}

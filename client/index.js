@@ -1,12 +1,13 @@
 import React from 'react';
 import { render } from 'react-dom';
 import App from './App.jsx';
-//why does this break css???
-// import './styles.css';
+import { Provider } from 'react-redux';
+import store from './store.js';
+import './styles.css';
 
 render(
-      <App />,
-    document.getElementById('app'),
-  );
-
-  
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('app')
+);
