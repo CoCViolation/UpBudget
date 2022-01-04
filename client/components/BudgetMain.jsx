@@ -41,9 +41,6 @@ const BudgetMain = () => {
               <td>$</td>
               </tr>
               <tr>
-              <td>Groceries</td>
-              <td>$</td>
-              </tr>              <tr>
               <td>Studen Loan</td>
               <td>$</td>
               </tr>
