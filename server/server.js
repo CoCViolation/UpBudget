@@ -15,6 +15,7 @@ import authRoutes from './routes/auth-routes.js';
 import passportSetup from './passport-setup.js'
 passportSetup();
 
+
 const app = express();
 
 const PORT = 3000;
@@ -30,11 +31,21 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.resolve(__dirname, '../client')));
 
 //need express sessions. Must look this up.
-app.use(session({ secret: 'keyboard cat', resave: false, saveUninitialized: false, cookie: { maxAge: 300000 }}))
+app.use(session({ secret: 'keyboard cat', resave: false, saveUninitialized: false, cookie: { maxAge: 60000 }}))
 
 //add passport initialize and sessions
 app.use(passport.initialize());
 app.use(passport.session());
+
+
+passport.serializeUser(function(user, done) {
+  console.log(user);
+  done(null, user);
+});
+
+passport.deserializeUser(function(user, done) {
+  done(null, user);
+});
 
 //TEST ROUTE FOR EXPRESS SESSIONS. EXPRESS SESSIONS REQUIRED FOR PASSPORT SESSIONS
 app.get('/test', function(req, res, next) {
@@ -47,7 +58,7 @@ app.get('/test', function(req, res, next) {
     // Once the cookie times out, it clears the session
     res.setHeader('Content-Type', 'text/html')
     res.write('<p>views: ' + req.session.views + '</p>')
-    res.write('<p>expires in: ' + (req.session.cookie.maxAge / 1000) + 's</p>')
+    res.write('<p>expires on: ' + (req.session.cookie.maxAge / 1000) + 's</p>')
     res.end()
     //if first time or the cookie is expired, it goes here!
     // session will send a cookie with a specific connect.sid per user? (i think, must verify) with the expiration time
@@ -75,13 +86,14 @@ app.get('/auth/google/callback', passport.authenticate('google'),
   //   res.redirect('/');
   // }
   (req, res) => {
-    //need to store the google profile id to req.session.userID
-    req.session.userID = res.locals.userID;
+    //store the user data into the passport session data
+    req.session.userID = req.session.passport.user;
+    console.log(req.session.passport.user);
 
-    console.log('gets redirect');
-    res.status(200).send('redirect back after auth');
+    //redirect to sql
+    res.status(200).redirect('/sql');
   }
-  );
+);
 
 
 // catch-all route handler for any requests to an unknown route

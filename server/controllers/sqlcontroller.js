@@ -1,5 +1,3 @@
-import express from 'express';
-import path from 'path';
 import query from '../models/sql'
 import {userColumns, transactionsColumns, categoriesColumns, categoryBudgetsColumns} from '../data/queryColumns.js';
 
