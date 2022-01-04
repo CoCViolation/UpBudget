@@ -4,8 +4,8 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 
 const devMode = process.env.NODE_ENV !== 'production';
 
-//added this to resolve ES6 issues with __dirname. See below:
-// https://nodejs.org/api/esm.html#no-__filename-or-__dirname
+//added this to resolve ES6 issues with dirname. See below:
+// https://nodejs.org/api/esm.html#no-filename-or-dirname
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 //commonjs
@@ -30,7 +30,7 @@ export default {
     rules: [
       {
         //takes all js/jsx files into the bundle
-        test: /\.jsx?$/,
+        test: /.jsx?$/,
         exclude: /(node_modules)/,
         use: {
           loader: 'babel-loader',
@@ -41,9 +41,9 @@ export default {
       },
       {
         //takes all sass and scss files into bundle
-        test: /\.s[ac]ss$/i,
+        test: /.s[ac]ss$/i,
         use: [
-          // // Creates `style` nodes from JS strings
+          // // Creates style nodes from JS strings
           'style-loader',
           // // Translates CSS into CommonJS
           'css-loader',
@@ -63,7 +63,7 @@ export default {
   devServer: {
     //proxy for diff front/back end servers
     proxy: {
-      '/': 'http://localhost:3000',
+      '/': 'http://localhost:3000/',
     },
     //sets up the path for the static files
     static: {
@@ -75,6 +75,6 @@ export default {
 
   //this resolves file extensions without having to specify them in the import lines
   resolve: {
-    extensions: ['.js', '.jsx'],
+    extensions: ['.js', '.jsx', '...'],
   },
 };
