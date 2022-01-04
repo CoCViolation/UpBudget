@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-// import ChatReducer from './chatReducer.js';
+import budgetReducer from './budgetReducer.js';
 
 // import all reducers here
 // import marketsReducer from './marketsReducer';
@@ -8,7 +8,7 @@ import { combineReducers } from 'redux';
 const reducers = combineReducers({
   // if we had other reducers, they would go here
   // markets: marketsReducer,
-  chat: ChatReducer,
+  budget: budgetReducer,
 });
 
 // make the combined reducers available for import

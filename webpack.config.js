@@ -1,14 +1,12 @@
-
-import path, {dirname} from 'path';
+import path, { dirname } from 'path';
 import { fileURLToPath } from 'url';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 
-const devMode = process.env.NODE_ENV !== "production";
+const devMode = process.env.NODE_ENV !== 'production';
 
 //added this to resolve ES6 issues with __dirname. See below:
 // https://nodejs.org/api/esm.html#no-__filename-or-__dirname
 const __dirname = dirname(fileURLToPath(import.meta.url));
-
 
 //commonjs
 // module.exports = {
@@ -35,32 +33,31 @@ export default {
         test: /\.jsx?$/,
         exclude: /(node_modules)/,
         use: {
-            loader: 'babel-loader',
-            options: {
-              presets: ['@babel/preset-env', '@babel/preset-react']
-            }
-          }
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env', '@babel/preset-react'],
+          },
+        },
       },
       {
         //takes all sass and scss files into bundle
         test: /\.s[ac]ss$/i,
         use: [
           // // Creates `style` nodes from JS strings
-          "style-loader",
+          'style-loader',
           // // Translates CSS into CommonJS
-          "css-loader",
+          'css-loader',
           // Compiles Sass to CSS
-          "sass-loader",
+          'sass-loader',
         ],
       },
-
-    ]
+    ],
   },
   //still not 100% sure what this does
   plugins: [
     new HtmlWebpackPlugin({
-      template: './client/index.html'
-    })
+      template: './client/index.html',
+    }),
   ],
   //sets up dev environment
   devServer: {
@@ -78,6 +75,6 @@ export default {
 
   //this resolves file extensions without having to specify them in the import lines
   resolve: {
-    extensions: ['.js', '.jsx', '...']
+    extensions: ['.js', '.jsx'],
   },
 };
