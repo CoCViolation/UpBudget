@@ -9,6 +9,11 @@ p {
   text-align: center;
 }
 
+.login-container img {
+  height:200px;
+  box-shadow: border;
+}
+
 
 .budget-container {
   width: 100vh;
