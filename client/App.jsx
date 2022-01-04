@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
-import Login from './components/login';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Login from './components/Login.jsx';
+import BudgetMain from './components/BudgetMain.js';
 
 const App = () => {
   return (
-    <div>
-      Hi!
-      <div>
-        <Login />
-      </div>
-    </div>
+    <Router>
+      <Routes>
+        <Route path='/' element={<Login />} />
+        <Route path='/budgetmain' element={<BudgetMain />} />
+      </Routes>
+    </Router>
   );
 };
 
