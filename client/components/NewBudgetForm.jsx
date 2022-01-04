@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
-import useForm from 'react-hook-form';
+// import useForm from 'react-hook-form';
 
 const NewBudgetForm = () => {
   return (
-    <div className="NewBudgetForm">
-
+    <div className="newBudget" style={{fontSize: '30x'}}> Please enter in your new budget
+    <div className="container newBudgetForm">
+      <br></br>
+      <br></br>
       <form>
         <input type="text" placeholder = "Groceries" name="groceries" className="type" />
         <input type="text" placeholder = "Gym" name="gym" className="type" />
@@ -15,8 +17,11 @@ const NewBudgetForm = () => {
         <input type="text" placeholder = "Electronics" name="electronics" className="type" />
         <input type="text" placeholder = "Day Care" name="day care" className="type" />
         <input type="text" placeholder = "Clothing" name="clothing" className="type" />
+      </form>
 
-      </form> 
+        <br></br>
+        <button className="submit"> SUBMIT </button>
+    </div>
     </div>
  
   );

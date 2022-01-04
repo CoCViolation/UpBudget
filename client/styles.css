@@ -73,24 +73,41 @@ p {
 }
 
 .buttonbox {
- display: flex;
- flex-direction: row;
- justify-content: center;
- align-items: center;
- border: none !important;
- 
-}
-
-.buttonbox button{
-  background-color: rgb(90, 187, 216);
-  font-size: 20px;
-  border-radius:10px;
-  padding:5px;
-  margin-left: 10px;
-}
-
-.newBudgetForm{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border: none !important;
   
-}
-
-
+ }
+ 
+ .buttonbox button{
+   background-color: rgb(90, 187, 216);
+   font-size: 20px;
+   border-radius:10px;
+   padding:5px;
+   margin-left: 10px;
+ }
+ 
+ .buttonbox img{
+   
+   margin-left: 30px;
+   height:200px;
+   box-shadow: border;
+ }
+ 
+ .newBudgetForm{
+   display: flex;
+   flex-direction: column;
+   margin-left: 50px;
+   width: 10vh;
+   height:75vh;
+   font-size: 20px;
+ }
+ 
+ .newBudgetForm input {
+   font-size: 15px;
+ }
+ 
+ 
+ 
