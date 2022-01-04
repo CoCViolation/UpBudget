@@ -1,10 +1,25 @@
+<<<<<<< HEAD
+import React, { useState } from 'react';
+import { connect } from 'react-redux';
+=======
 import React from 'react';
 // import { connect } from 'react-redux';
 import {Link} from 'react-router-dom';
+>>>>>>> 1c942680eee19814dde8bd2dd9ff39846119b245
 
 const BudgetMain = () => {
   return (
     <div className='container budget-container'>
+<<<<<<< HEAD
+      <div className='header'>
+        <div className='header1'>Account</div>
+        <div className='header2'>Hi user!</div>
+      </div>
+      <div className='content-large'>Total Monthly Budget:</div>
+      <div className='content-large'>Spent</div>
+      <div className='content-large'>Budget</div>
+    </div>
+=======
       <div className='header1'> My Account</div>
       <div className='header2'> Hi User! </div>
 
@@ -165,6 +180,7 @@ const BudgetMain = () => {
       </Link>
       </div>
      </div>
+>>>>>>> 1c942680eee19814dde8bd2dd9ff39846119b245
   );
 };
 

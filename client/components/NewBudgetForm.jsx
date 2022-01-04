@@ -1,4 +1,9 @@
 import React, { Component } from 'react';
+<<<<<<< HEAD
+
+const NewBudgetForm = () => {
+  return <div>New Budget Goals!</div>;
+=======
 import useForm from 'react-hook-form';
 
 const NewBudgetForm = () => {
@@ -20,6 +25,7 @@ const NewBudgetForm = () => {
     </div>
  
   );
+>>>>>>> 1c942680eee19814dde8bd2dd9ff39846119b245
 };
 
 export default NewBudgetForm;

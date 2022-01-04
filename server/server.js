@@ -1,20 +1,18 @@
-import path, {dirname} from 'path';
+import path, { dirname } from 'path';
 import { fileURLToPath } from 'url';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 import express from 'express';
-import session from 'express-session'
+import session from 'express-session';
 import passport from 'passport';
 import GoogleStrategy from 'passport-google-oidc';
 
-import sqlRouter from './routes/sql.js'
-import sqlController from './controllers/sqlcontroller.js'
+import sqlRouter from './routes/sql.js';
+import sqlController from './controllers/sqlcontroller.js';
 import authRoutes from './routes/auth-routes.js';
 
-
-import passportSetup from './passport-setup.js'
+import passportSetup from './passport-setup.js';
 passportSetup();
-
 
 const app = express();
 
@@ -31,55 +29,64 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.resolve(__dirname, '../client')));
 
 //need express sessions. Must look this up.
-app.use(session({ secret: 'keyboard cat', resave: false, saveUninitialized: false, cookie: { maxAge: 60000 }}))
+app.use(
+  session({
+    secret: 'keyboard cat',
+    resave: false,
+    saveUninitialized: false,
+    cookie: { maxAge: 60000 },
+  })
+);
 
 //add passport initialize and sessions
 app.use(passport.initialize());
 app.use(passport.session());
 
-
-passport.serializeUser(function(user, done) {
+passport.serializeUser(function (user, done) {
   console.log(user);
   done(null, user);
 });
 
-passport.deserializeUser(function(user, done) {
+passport.deserializeUser(function (user, done) {
   done(null, user);
 });
 
 //TEST ROUTE FOR EXPRESS SESSIONS. EXPRESS SESSIONS REQUIRED FOR PASSPORT SESSIONS
-app.get('/test', function(req, res, next) {
+app.get('/test', function (req, res, next) {
   // if the session exists, it should have req.session.views.
   if (req.session.views) {
     //increments views
-    req.session.views++
-    // set headers and writes to client the number of views and when the cookie will expire. 
+    req.session.views++;
+    // set headers and writes to client the number of views and when the cookie will expire.
     // Since the cookie's maxAge is set when the user refreshes, it is always 60s.
     // Once the cookie times out, it clears the session
-    res.setHeader('Content-Type', 'text/html')
-    res.write('<p>views: ' + req.session.views + '</p>')
-    res.write('<p>expires on: ' + (req.session.cookie.maxAge / 1000) + 's</p>')
-    res.end()
+    res.setHeader('Content-Type', 'text/html');
+    res.write('<p>views: ' + req.session.views + '</p>');
+    res.write('<p>expires on: ' + req.session.cookie.maxAge / 1000 + 's</p>');
+    res.end();
     //if first time or the cookie is expired, it goes here!
     // session will send a cookie with a specific connect.sid per user? (i think, must verify) with the expiration time
   } else {
-    req.session.views = 1
-    res.end('welcome to the session demo. refresh!')
+    req.session.views = 1;
+    res.end('welcome to the session demo. refresh!');
   }
-})
+});
 
 //start writing route handlers here
 app.use('/sql', sqlRouter);
 
-
-
-
 //passport doesn't seem to be able to be put into routers or controllers
-app.get('/auth/google', passport.authenticate('google', {scope: ['openid', 'profile', 'email']}), (req,res) => {
-  res.status(200).send('logged in')
-});
+app.get(
+  '/auth/google',
+  passport.authenticate('google', { scope: ['openid', 'profile', 'email'] }),
+  (req, res) => {
+    res.status(200).send('logged in');
+  }
+);
 
-app.get('/auth/google/callback', passport.authenticate('google'),
+app.get(
+  '/auth/google/callback',
+  passport.authenticate('google'),
 
   // { failureRedirect: '/login', failureMessage: true }),
   // function(req, res) {
@@ -95,11 +102,10 @@ app.get('/auth/google/callback', passport.authenticate('google'),
   }
 );
 
-
 // catch-all route handler for any requests to an unknown route
 app.use('/:address', (req, res) => {
   console.log(req.params.address);
-  res.status(404).send(`Nothing here at the catchall of ${req.params.address}`)
+  res.status(404).send(`Nothing here at the catchall of ${req.params.address}`);
 });
 
 app.use((err, req, res, next) => {
@@ -112,11 +118,10 @@ app.use((err, req, res, next) => {
   console.log(errorObj.log);
   return res.status(errorObj.status).json(errorObj.message);
 });
-  
+
 //start server
 app.listen(PORT, () => {
   console.log(`Server listening on port: ${PORT}...`);
 });
-  
+
 export default app;
-  
