@@ -6,61 +6,10 @@ import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Pie } from 'react-chartjs-2';
 
 const BudgetMain = (props) => {
-  // const [spending, setSpending] = useState({
-  //   groceries: 1,
-  //   gym: 2,
-  //   rent: 3,
-  //   car_loan: 4,
-  //   fun_money: 5,
-  //   student_loan: 6,
-  //   electronics: 8,
-  //   day_care: 10,
-  //   clothing: 1
-  // })
-
-  const spending = {groceries: 1,
-    gym: 2,
-    rent: 3,
-    car_loan: 4,
-    fun_money: 5,
-    student_loan: 6,
-    electronics: 8,
-    day_care: 10,
-    clothing: 1}
-
-  ChartJS.register(ArcElement, Tooltip, Legend);
-
-  const data = {
-    labels: ['Gym', 'Rent', 'Car Loan', 'Fun Money', 'Student Loan', 'Electronics'],
-    datasets: [
-      {
-        label: '# of Votes',
-        // data: [12, 19, 3, 5, 2, 3], //match to data.labels
-        // data: [spending.groceries, spending.gym, spending.rent, spending.car_loan, spending.fun_money, spending.student_loan, spending.electronics, spending.day_care, spending.clothing], //match to data.labels
-        data: [spending.groceries, spending.gym, spending.rent, spending.car_loan, spending.fun_money, spending.student_loan], //match to data.labels
-        backgroundColor: [
-          'rgba(255, 99, 132, 0.2)',
-          'rgba(54, 162, 235, 0.2)',
-          'rgba(255, 206, 86, 0.2)',
-          'rgba(75, 192, 192, 0.2)',
-          'rgba(153, 102, 255, 0.2)',
-          'rgba(255, 159, 64, 0.2)',
-        ],
-        borderColor: [
-          'rgba(255, 99, 132, 1)',
-          'rgba(54, 162, 235, 1)',
-          'rgba(255, 206, 86, 1)',
-          'rgba(75, 192, 192, 1)',
-          'rgba(153, 102, 255, 1)',
-          'rgba(255, 159, 64, 1)',
-        ],
-        borderWidth: 1,
-      },
-    ],
-  };
+  console.log(props);
 
 
-
+  
   return (
     <div className='container budget-container'>
       <div className='header1'> My Account</div>
