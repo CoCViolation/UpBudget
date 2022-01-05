@@ -48,7 +48,7 @@ app.use(
   })
 );
 
-//add passport initialize and sessions
+// //add passport initialize and sessions
 app.use(passport.initialize());
 app.use(passport.session());
 

@@ -1,6 +1,9 @@
 import React from 'react';
 // import { connect } from 'react-redux';
+// import "../styles.scss";
 import {Link} from 'react-router-dom';
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
+import { Pie } from 'react-chartjs-2';
 
 const BudgetMain = (props) => {
   console.log(props);
@@ -45,7 +48,7 @@ const BudgetMain = (props) => {
               <td>$</td>
               </tr>
               <tr>
-              <td>Studen Loan</td>
+              <td>Student Loan</td>
               <td>$</td>
               </tr>
               <tr>
@@ -168,6 +171,7 @@ const BudgetMain = (props) => {
       <button className="button">Input New Budget</button>
       </Link>
       </div>
+      {/* <Pie data ={data}/> */}
      </div>
   );
 };
