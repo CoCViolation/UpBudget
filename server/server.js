@@ -11,6 +11,8 @@ import sqlRouter from './routes/sql.js';
 import sqlController from './controllers/sqlcontroller.js';
 import authRoutes from './routes/auth-routes.js';
 
+// import BudgetMain from '../client/components/BudgetMain.ejs'
+
 import passportSetup from './passport-setup.js';
 passportSetup();
 
@@ -34,7 +36,7 @@ app.use(
     secret: 'keyboard cat',
     resave: false,
     saveUninitialized: false,
-    cookie: { maxAge: 60000 },
+    cookie: { maxAge: 5000 },
   })
 );
 
@@ -50,6 +52,11 @@ passport.serializeUser(function (user, done) {
 passport.deserializeUser(function (user, done) {
   done(null, user);
 });
+
+
+// //view engine
+// app.set('view engine', 'ejs');
+
 
 //TEST ROUTE FOR EXPRESS SESSIONS. EXPRESS SESSIONS REQUIRED FOR PASSPORT SESSIONS
 app.get('/test', function (req, res, next) {
@@ -101,6 +108,10 @@ app.get(
     res.status(200).redirect('/sql');
   }
 );
+
+// app.get('/budgetMain', (req, res, ) => {
+//   res.status(200).render('BudgetMain');
+// })
 
 // catch-all route handler for any requests to an unknown route
 app.use('/:address', (req, res) => {
