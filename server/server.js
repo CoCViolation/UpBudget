@@ -1,6 +1,7 @@
 import path, { dirname } from 'path';
 import { fileURLToPath } from 'url';
 const __dirname = dirname(fileURLToPath(import.meta.url));
+import cors from 'cors';
 
 import express from 'express';
 import session from 'express-session';
@@ -39,6 +40,10 @@ app.use(
     cookie: { maxAge: 5000 },
   })
 );
+
+//cors
+
+
 
 //add passport initialize and sessions
 app.use(passport.initialize());

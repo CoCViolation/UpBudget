@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import useForm from 'react-hook-form';
 
 const NewBudgetForm = () => {
+
   return (
     <div className="NewBudgetForm">
 
@@ -15,7 +16,7 @@ const NewBudgetForm = () => {
         <input type="text" placeholder = "Electronics" name="electronics" className="type" />
         <input type="text" placeholder = "Day Care" name="day care" className="type" />
         <input type="text" placeholder = "Clothing" name="clothing" className="type" />
-
+        <button className="btn" type="button" onClick={()=>{console.log('TESTTEST')}}>TEST!!!</button>
       </form> 
     </div>
  
