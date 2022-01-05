@@ -30,7 +30,7 @@ router.get('/', sqlController.getUser, sqlController.getTransactions, sqlControl
         'categories': res.locals.categories,
         'categoryBudget': res.locals.categoryBudgets
     }
-    // console.log(userData);
+    console.log(userData);
     console.log('sending data back');
     res.status(200).json(userData);
 })

@@ -9,7 +9,7 @@ import {
 const controller = {};
 //will return a valid user_id in res.locals.user_id and userData in res.locals.userData
 controller.getUser = (req, res, next) => {
-  console.log(`    Running sqlController.getUser`);
+  console.log(`Running sqlController.getUser`);
   console.log(userColumns);
   //dummy query to get all users
   query(`SELECT ${userColumns} FROM users;`)
