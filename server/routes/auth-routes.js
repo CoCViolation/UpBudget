@@ -1,4 +1,5 @@
 import express from 'express';
+import passport from 'passport';
 const router = express.Router();
 
 //this will be run before any of the others
@@ -23,9 +24,9 @@ router.get('/logout', (req, res)=> {
 
 //authenticate with google
 
-// router.get('/auth/google', passport.authenticate('google', {scope: ['profile']}), (req, res)=> { 
-//     res.send('logging in with google');
-// })
+router.get('/auth/google', passport.authenticate('google', {scope: ['profile']}), (req, res)=> { 
+    res.send('logging in with google');
+})
 
 // router.get('/google', passportController.auth, (req, res)=> { 
 //     res.status(200).send('logging in with google');

@@ -2,7 +2,8 @@ import React from 'react';
 // import { connect } from 'react-redux';
 import {Link} from 'react-router-dom';
 
-const BudgetMain = () => {
+const BudgetMain = (props) => {
+  console.log(props);
   return (
     <div className='container budget-container'>
       <div className='header1'> My Account</div>
