@@ -3,7 +3,7 @@ import { fileURLToPath } from "url";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 import express from "express";
-import session from "express-session";
+import session from "cookie-session";
 import passport from "passport";
 import GoogleStrategy from "passport-google-oidc";
 
@@ -40,11 +40,10 @@ app.use("/auth", authRoutes);
 
 //need express sessions. Must look this up.
 app.use(
-  session({
-    secret: "keyboard cat",
-    resave: false,
-    saveUninitialized: false,
-    cookie: { maxAge: 5000 },
+  cookieSession({
+    name:"session",
+    keys:["catSnake"],
+    maxAge: 24 *60 * 60 * 100;
   })
 );
 
