@@ -100,6 +100,7 @@ app.get(
   (req, res) => {
     //store the user data into the passport session data
     req.session.userID = req.session.passport.user;
+    console.log("THIS IS THE REQ SESSION:",req.session)
     console.log(req.session.passport.user);
 
     //redirect to sql

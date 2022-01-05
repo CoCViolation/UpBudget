@@ -61,13 +61,14 @@ export default {
   ],
   //sets up dev environment
   devServer: {
+    historyApiFallback: true,
     //proxy for diff front/back end servers
-    proxy: {
-      '/': 'http://localhost:3000/',
-    },
+    // proxy: {
+    //   '/': 'http://localhost:3000/',
+    // },
     //sets up the path for the static files
     static: {
-      directory: path.join(__dirname),
+      directory: path.resolve(__dirname, 'client/build'),
     },
     compress: true,
     port: 8080,
