@@ -18,13 +18,12 @@ render(
 // import store from './store.js';
 import { BrowserRouter } from 'react-router-dom';
 
-
 render(
   <React.StrictMode>
     {/* <Provider store={store}>  */}
-      {/* <BrowserRouter> */}
-        <App />
-      {/* </BrowserRouter> */}
+    {/* <BrowserRouter> */}
+    <App />
+    {/* </BrowserRouter> */}
     {/* </Provider> */}
   </React.StrictMode>,
 >>>>>>> 1c942680eee19814dde8bd2dd9ff39846119b245
