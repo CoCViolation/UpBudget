@@ -12,7 +12,6 @@ import sqlRouter from "./routes/sql.js";
 import sqlController from "./controllers/sqlcontroller.js";
 import authRoutes from "./routes/auth-routes.js";
 
-import cors from "cors";
 
 // import BudgetMain from '../client/components/BudgetMain.ejs'
 
