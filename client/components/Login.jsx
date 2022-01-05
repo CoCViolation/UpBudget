@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 const Login = () => {
+
   return (
     <div className='container login-container'>
       <h3 className='welcome'> Budgeting Tool</h3>
@@ -22,5 +23,6 @@ const Login = () => {
     </div>
   );
 };
+
 
 export default Login;
