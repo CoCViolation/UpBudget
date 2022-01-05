@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
 import App from './App.jsx';
-<<<<<<< HEAD
+
 import { Provider } from 'react-redux';
 // import store from './store.js';
 
@@ -13,7 +13,7 @@ render(
   // <Provider store={store}>
   <App />,
   // </Provider>,
-=======
+
 // import { Provider } from 'react-redux';
 // import store from './store.js';
 import { BrowserRouter } from 'react-router-dom';
