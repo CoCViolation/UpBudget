@@ -4,6 +4,9 @@ import {Link} from 'react-router-dom';
 
 const BudgetMain = (props) => {
   console.log(props);
+
+
+  
   return (
     <div className='container budget-container'>
       <div className='header1'> My Account</div>
