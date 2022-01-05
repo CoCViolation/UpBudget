@@ -28,7 +28,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 //static files
-app.use(express.static(path.resolve(__dirname, '../client')));
+// app.use(express.static(path.resolve(__dirname, '../client')));
 
 //need express sessions. Must look this up.
 app.use(
@@ -40,7 +40,7 @@ app.use(
   })
 );
 
-//add passport initialize and sessions
+// //add passport initialize and sessions
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -56,7 +56,7 @@ passport.deserializeUser(function (user, done) {
 
 
 
-//TEST ROUTE FOR EXPRESS SESSIONS. EXPRESS SESSIONS REQUIRED FOR PASSPORT SESSIONS
+// //TEST ROUTE FOR EXPRESS SESSIONS. EXPRESS SESSIONS REQUIRED FOR PASSPORT SESSIONS
 app.get('/test', function (req, res, next) {
   // if the session exists, it should have req.session.views.
   if (req.session.views) {
