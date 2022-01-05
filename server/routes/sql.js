@@ -1,5 +1,5 @@
 import express from 'express';
-import sqlController from '../controllers/sqlController.js';
+import sqlController from '../controllers/sqlcontroller.js';
 
 const router = express.Router();
 

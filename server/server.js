@@ -54,8 +54,6 @@ passport.deserializeUser(function (user, done) {
 });
 
 
-// //view engine
-// app.set('view engine', 'ejs');
 
 
 //TEST ROUTE FOR EXPRESS SESSIONS. EXPRESS SESSIONS REQUIRED FOR PASSPORT SESSIONS
