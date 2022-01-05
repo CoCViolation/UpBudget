@@ -5,13 +5,12 @@ import App from './App.jsx';
 // import store from './store.js';
 import { BrowserRouter } from 'react-router-dom';
 
-
 render(
   <React.StrictMode>
     {/* <Provider store={store}>  */}
-      {/* <BrowserRouter> */}
-        <App />
-      {/* </BrowserRouter> */}
+    {/* <BrowserRouter> */}
+    <App />
+    {/* </BrowserRouter> */}
     {/* </Provider> */}
   </React.StrictMode>,
   document.getElementById('app')
