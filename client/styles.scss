@@ -1,0 +1,88 @@
+@import url("https://fonts.googleapis.com/css?family=Crimson+Text|Work+Sans:400,700");
+
+
+p {
+  margin: 10px 0 !important;
+}
+
+body{
+  font-family: "Work Sans", sans-serif;
+}
+
+h4 {
+  font-family: "Work Sans", sans-serif;
+  font-weight: bolder;
+  color: ivory;
+}
+
+.login-container {
+  width: 400px;
+  margin-top: 50px;
+  text-align: center;
+}
+
+.budget-container{
+  width: 500px;
+  height: fit-content;
+  padding: 10px 30px;
+  margin: 30px auto 20px auto;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: rgb(206, 229, 230);
+  position: inherit;
+  border-radius: 20px;
+  border-color: lightblue;
+}
+
+.content{
+  width: 70%;
+  height: 20%;
+  margin: 8px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  display: inline-block;
+  border: 1px solid c;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  border-radius: 20px;
+  box-shadow: 0 0 3px 2px rgb(71, 64, 64);
+  background-color: ivory;
+  cursor: pointer;
+}
+
+.label{
+  font-size: larger;
+  font-weight: bolder;
+  color: #0aa06c;
+}
+
+.totalSpend{
+  font-size: larger;
+  font-weight: bolder;
+  color: red;
+}
+
+.btn {
+  background-image: linear-gradient(#0aa06c, #74e4ca);
+  border: 1px solid #0aa06c;
+  min-width: auto;
+  border-radius: 4px;
+  box-sizing: border-box;
+  color: white;
+  cursor: pointer;
+  padding: 4px 15px;
+  text-align: center;
+  margin: 5px;
+  box-sizing: border-box;
+}
+
+.btn:hover {
+  background-color: rgb(36, 196, 182);
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
