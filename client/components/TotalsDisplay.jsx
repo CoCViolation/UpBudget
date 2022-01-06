@@ -49,7 +49,7 @@ function TotalsDisplay() {
 
     <div className="sub-budget-container">
       <form className='content'>
-        <h4>New Budget Form</h4>
+        <h4>New Spending Form</h4>
         <label className='label'>Groceries:</label>
           <input type="text" placeholder = "Groceries" name="groceries" className="type" onChange={(e) => setGroceries(e.target.value)}/>
         <label className='label'>Gym:</label>
@@ -72,7 +72,7 @@ function TotalsDisplay() {
         <button type='button' className='btn' onClick={()=>handleSubmitClick()}>Submit</button>
         <Link style={{textDecoration:'none', fontSize:'13px'}} className='btn' to="/budgetmain">Go Back</Link>
       </form>
-        <h4>Total Spending Budget: $ {total(spendState)}</h4>
+        <h4>Total Spending: $ {total(spendState)}</h4>
         {clicked ? <> <PieChart groceries={groceries} gym={gym} rent={rent} car_loan={car_loan} fun_money={fun_money} student_loan={student_loan} electronics={electronics} day_care={day_care} clothing={clothing}/> </> : ''}
     </div>
     <div style={{width:'20%'}}>
