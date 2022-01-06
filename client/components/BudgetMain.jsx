@@ -28,35 +28,33 @@ const BudgetMain = () => {
   // and we can then manipulate it however we want to make it fit the graphs
   // we want to build
   useEffect(() => {
-  // for now, I can't run localhost:3000 for whatever reason, but I'm 99% sure this syntax
-  // is correct, so I'm building out the logic by just importing from the sample-user-data.json
-  // file which contains a lot of the same data, we should only require a few tweaks to make it fit
-  // just replace transactionList with the parsed result for whatever user we access with the db query
-  //   fetch('https://localhost:3000/sql')
-  //     .then((result) => enter the for loop below
-    // iterating through the user data's list of transactions
-    for (let i = 0; i < transactionsList.length; i++) {
-      // inserting a table entry into transactions table that corresponds to each listed transaction
-      // taking relevant info: date, payee, amount, name, debit/credit, notes
-      let row = document.getElementById('transactions-table').insertRow(i)
-      let name = row.insertCell(0);
-      let date = row.insertCell(1);
-      if (transactionsList[i].credit == true) {
+  
+    fetch("http://localhost:3000/sql")
+      .then((result) => result.json())
+      // .then((result) => console.log("this is result:", result))rse(result))
+      .then((result) => {
+      const transactionsList = result.transactions;
+      // iterating through the user data's list of transactions
+      for (let i = 0; i < transactionsList.length; i++) {
+        // inserting a table entry into transactions table that corresponds to each listed transaction
+        // taking relevant info: date, payee, amount, name, debit/credit, notes
+        let row = document.getElementById("transactions-table").insertRow(i);
+        let name = row.insertCell(0);
+        let date = row.insertCell(1);
+        if (transactionsList[i].credit == true) {
         let credit = row.insertCell(2);
-        credit.innerHTML = `<b>transaction type:</b> credit` 
-      } else if (transactionsList[i].debit == true) {
+        credit.innerHTML = '<b>transaction type:</b> credit';
+        } else if (transactionsList[i].debit == true) {
         let debit = row.insertCell(2);
-        debit.innerHTML = '<b>transaction type: </b> debit'
-      }
-      let amount = row.insertCell(3);
-      name.innerHTML = `<b>transaction name:</b> ${transactionsList[i].name}`
-      date.innerHTML = `<b>date:</b> ${transactionsList[i].date.slice(0, 10)}`
-      amount.innerHTML = `<b>amount:</b> $${transactionsList[i].amount}`;
-      // console.log("This is the amount",transactionsList[i].amount)
-    }
-
+        debit.innerHTML = "<b>transaction type: </b> debit";
+        }
+        let amount = row.insertCell(3);
+        name.innerHTML = `<b>transaction name:</b> ${transactionsList[i].name}`;
+        date.innerHTML = `<b>date:</b> ${transactionsList[i].date.slice(0,10)}`;
+        amount.innerHTML = `<b>amount:</b> $${transactionsList[i].amount}`;
+	    }
+    })
   })
-
 
   return (
     <div className='container budget-container'>
@@ -160,7 +158,5 @@ const BudgetMain = () => {
     </div>
   );
   };
->>>>>>> dev
 
 export default BudgetMain;
-//state = {userData, categories, transactions, categoryBudget}
