@@ -2,24 +2,29 @@ import React, {useState} from 'react'
 import PieChart from './PieChart';
 import "../styles.scss";
 import {Link} from 'react-router-dom';
+import { addSpending} from '../store.js'
+import { useSelector, useDispatch } from "react-redux";
 
 function TotalsDisplay() {
 
-  const [groceries, setGroceries] = useState("0");
-  const [gym, setGym] = useState("0");
-  const [rent, setRent] = useState("0");
-  const [car_loan, setCar_loan,] = useState("0");
-  const [fun_money, setFun_money,] = useState("0");
-  const [student_loan, setStudent_loan,] = useState("0");
-  const [electronics, setElectronics] = useState("0");
-  const [day_care, setDaycare] = useState("0");
-  const [clothing, setClothing] = useState("0");
+  const dispatch = useDispatch();
+  const spendState = useSelector((state) => state.config.spending);
+  const [groceries, setGroceries] = useState(0);
+  const [gym, setGym] = useState(0);
+  const [rent, setRent] = useState(0);
+  const [car_loan, setCar_loan,] = useState(0);
+  const [fun_money, setFun_money,] = useState(0);
+  const [student_loan, setStudent_loan,] = useState(0);
+  const [electronics, setElectronics] = useState(0);
+  const [day_care, setDaycare] = useState(0);
+  const [clothing, setClothing] = useState(0);
+  const [total, setTotal] = useState(0);
   const [clicked, setClicked] = useState(false);
 
-  
+  console.log(spendState);
   //catch error that type has to be only integer
 
-  let total = (parseInt(groceries)+ 
+  let totalAmount = (parseInt(groceries)+ 
                   parseInt(gym)+
                   parseInt(rent)+
                   parseInt(car_loan)+
@@ -31,43 +36,10 @@ function TotalsDisplay() {
   );
 
   const handleSubmitClick = () => {
-  
-    const groceries = document.getElementById("groceries").value;
-    const gym = document.getElementById("gym").value;
-    const rent = document.getElementById("rent").value;
-    const car_loan = document.getElementById("car_loan").value;
-    const fun_money = document.getElementById("fun_money").value;
-    const student_loan = document.getElementById("student_loan").value;
-
-    fetch("http://localhost:3000/sql", {
-      method: "POST",
-      credentials:'include',
-      body: JSON.stringify({
-        groceries,
-        gym,
-        rent,
-        car_loan,
-        fun_money,
-        student_loan
-      }),
-      headers: { "Content-type": "application/json; charset=UTF-8" },
-    })
-      .then((response) => response.json())
-      .then((success) => {
-        console.log(success)
-        if (success.hasOwnProperty('userData')) {
-          alert(
-            `Successful`
-          );
-          navigate("/budgetmain");
-        } else
-          alert(
-            "Something Went Wrong! Please make sure all fields are correct!"
-          );
-      })
-      .then(response => response.text()) 
-      .then(json => console.log(json))
-      .catch(err => console.log('Import Data Failed', err))
+    setClicked(true);
+    dispatch(addSpending({groceries, gym, rent, car_loan, fun_money, student_loan, electronics, day_care, clothing, total}));
+    alert("Submitted Successfully!")
+    
   }
 
   return (
@@ -101,8 +73,8 @@ function TotalsDisplay() {
           <input type="text" placeholder = "Clothing" value={clothing} className="type" onChange={(e) => setClothing(e.target.value)}/>
         </label>
       </div>
-      <p className='totalSpend'> Total Spending: {total}</p>
-      <button type='button' className='btn' onClick={handleSubmitClick}>Submit</button>
+      <p className='totalSpend' onChange={(e) => setTotal(e.target.totalAmount)}> Total Spending: {totalAmount}</p>
+      <button type='button' className='btn' onClick={handleSubmitClick} >Submit</button>
       <Link style={{textDecoration:'none', fontSize:'13px'}} className='btn' to="/budgetmain">Go Back</Link>
       
     </div>

@@ -21,7 +21,8 @@ const initialState = {
         student_loan : 0, 
         electronics : 0, 
         day_care : 0, 
-        clothing : 0
+        clothing : 0,
+        total: 0,
     }
 }
 

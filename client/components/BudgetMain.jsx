@@ -10,9 +10,12 @@ import { useSelector } from "react-redux";
 const BudgetMain = () => {
 
   const budgetState = useSelector((state) => state.config.budget);
-  console.log(budgetState);
+  // console.log(budgetState);
+  const spendState = useSelector((state) => state.config.spending);
+  console.log(spendState);
 
   const [newbudgetState, setbudgetState] = useState(budgetState);
+  const [newspendState, setSpendState] = useState(spendState);
 
   
   // we'll be using this fetch request to pull user from localhost:3000/sql
@@ -51,7 +54,8 @@ const BudgetMain = () => {
 
   return (
     <div className='container budget-container'>
-      <div>testing, this is budgetState Groceries! {budgetState.groceries.groceries}</div>
+      {/* <div>testing, this is budgetState Groceries! {budgetState.groceries.groceries}</div> */}
+      <div>testing, this is budgetState Groceries! {spendState.groceries.groceries}</div>
       <div className='header1'> My Account</div>
       <div className='header2'> Hi User! </div>
       <div className='budget-container'>
@@ -61,7 +65,7 @@ const BudgetMain = () => {
           
 
         </div>
-        <div className='content'>Total Spent : fake $450
+        <div className='content'>Total Spent : 
           
 
         </div>
