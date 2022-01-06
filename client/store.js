@@ -1,4 +1,10 @@
+<<<<<<< HEAD
+import { createStore } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
+// import reducers from './reducers/index.js';
+=======
 import { createSlice} from '@reduxjs/toolkit';
+>>>>>>> dev
 
 const initialState = {
     budget: { 
@@ -25,6 +31,9 @@ const initialState = {
     }
 }
 
+<<<<<<< HEAD
+export default store;
+=======
 export const configurationSlice = createSlice({
   name: 'configuration',
   initialState: initialState,
@@ -47,3 +56,4 @@ export const configurationSlice = createSlice({
 export const { addBudget, resetBudget, addSpending, resetSpending } = configurationSlice.actions;
 
 export default configurationSlice.reducer;
+>>>>>>> dev

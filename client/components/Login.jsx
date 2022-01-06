@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 const Login = () => {
@@ -13,6 +13,10 @@ const Login = () => {
   //     .then(data => data.json())
   //     .catch(error => console.log('This is the error', error));
   // }
+
+  const google = () => {
+    window.open("http://localhost:3000/auth/google", "_self");
+  };
 
   return (
     <div className="container login-container">
@@ -29,6 +33,7 @@ const Login = () => {
       <br></br>
       <div className="section">
         <a
+          onClick={google}
           href="http://localhost:3000/auth/google"
           className="btn red darken-1"
         >

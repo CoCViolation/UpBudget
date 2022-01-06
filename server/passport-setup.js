@@ -22,8 +22,7 @@ passport.deserializeUser((userID, done) => {
 passport.use(
   new GoogleStrategy(
     {
-      clientID:
-      GOOGLE_CLIENT_ID,
+      clientID: GOOGLE_CLIENT_ID,
       clientSecret: GOOGLE_CLIENT_SECRET,
       callbackURL: "http://localhost:3000/auth/google/callback",
     },
@@ -65,7 +64,7 @@ passport.use(
             };
 
             //same as return, except it sends back user into req.session.passport
-            done(null, user);
+            return done(null, user);
           }
 
           //else create
