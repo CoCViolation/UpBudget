@@ -27,13 +27,15 @@ const NewBudgetForm = () => {
   const isClicked  = () => {
     setClicked(true);
     dispatch(addBudget({groceries, gym, rent, car_loan, fun_money, student_loan, electronics, day_care, clothing}));
+    alert("Submitted Successfully!")
   // clicked ? setClicked(false) : setClicked(true);
   }
 
 
   return (
-    <div className="budget-container">
-      <form>
+    <div className="sub-budget-container">
+      <form className='content'>
+        <h4>New Budget Form</h4>
         <label className='label'>Groceries:</label>
           <input type="text" placeholder = "Groceries" name="groceries" className="type" onChange={(e) => setGroceries({groceries: e.target.value})}/>
         <label className='label'>Gym:</label>

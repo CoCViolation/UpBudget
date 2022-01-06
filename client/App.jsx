@@ -7,7 +7,6 @@ import NewBudgetForm from './components/NewBudgetForm.jsx';
 import TotalsDisplay from './components/TotalsDisplay.jsx';
 import { useSelector, useDispatch } from "react-redux";
 
-
 const App = () => {
   const config = useSelector((state) => state.config);
   const dispatch = useDispatch();

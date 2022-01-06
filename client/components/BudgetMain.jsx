@@ -43,6 +43,7 @@ const BudgetMain = () => {
       name.innerHTML = `<b>transaction name:</b> ${transactionsList[i].name}`
       date.innerHTML = `<b>date:</b> ${transactionsList[i].date.slice(0, 10)}`
       amount.innerHTML = `<b>amount:</b> $${transactionsList[i].amount}`;
+      console.log("This is the amount",transactionsList[i].amount)
     }
 
   })
@@ -53,7 +54,46 @@ const BudgetMain = () => {
       <div>testing, this is budgetState Groceries! {budgetState.groceries.groceries}</div>
       <div className='header1'> My Account</div>
       <div className='header2'> Hi User! </div>
+      <div className='budget-container'>
+      <h4> My Account</h4>
+      <div>
+        <div className='content'>Total Monthly Budget: fake $1000
+          
+
+        </div>
+        <div className='content'>Total Spent : fake $450
+          
+
+        </div>
+        <div className='content'>Budget : fake $550
+        
+        
+        </div>
+      </div>
+        <Link to='/totaldisplay'>
+        <button className="btn">Input Spending</button>
+        </Link>
+        <Link to='/newbudget'>
+        <button className="btn">Input New Budget</button>
+        </Link>
+      </div>
+
       {/* <div id="testcomponent">{sampleUserData.transactions}</div> */}
+      <div id="transactions-list" className='content-medium1'>
+        <br/>
+        <ul className='transactions'>
+          <table id="transactions-table">
+            <thread>
+              <tr>
+                <th>Recent Transactions:</th>
+              </tr>
+            </thread>
+            <tbody>
+
+            </tbody>
+          </table>
+        </ul>
+      </div>
       <div className='content-large'>Total Monthly Budget:
         
         <ul className='categories'>
@@ -106,135 +146,9 @@ const BudgetMain = () => {
           </table> 
         </ul>
       </div>
-      <div id="transactions-list" className='content-medium1'>
-        <br/>
-        <ul className='transactions'>
-          <table id="transactions-table">
-            <thread>
-              <tr>
-                <th>Recent Transactions:</th>
-              </tr>
-            </thread>
-            <tbody>
-
-            </tbody>
-          </table>
-        </ul>
-      </div>
-      <div className='content-medium1'>
-      <ul className='totalSpent'>
-          <table>
-            <thead>
-              <br></br>
-              <br></br>
-              <tr>
-                <th> Total Spent  </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>$</td>
-              </tr>
-              <tr>
-                <td>$</td>
-              </tr>
-              <tr>
-              <td>$</td>
-              </tr>
-              <tr>
-               <td>$</td>
-              </tr>
-              <tr>
-                <td>$</td>
-              </tr>
-              <tr>
-              <td>$</td>
-              </tr> <tr>
-               <td>$</td>
-              </tr>
-              <tr>
-                 <td>$</td>
-              </tr>
-              <tr>
-                <td>$</td>
-              </tr>
-              <tr>
-               <td>$</td>
-              </tr>
-              <br></br>
-            </tbody>
-          </table>
-        </ul></div>
-      <div className='content-medium2'>
-      <ul className='remBudget'>
-          <table>
-            <thead>
-              <br></br>
-              <br></br>
-              <tr>
-                <th>Budget</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>$</td>
-              </tr>
-              <tr>
-                <td>$</td>
-              </tr>
-              <tr>
-              <td>$</td>
-              </tr>
-              <tr>
-               <td>$</td>
-              </tr>
-              <tr>
-                <td>$</td>
-              </tr>
-              <tr>
-              <td>$</td>
-              </tr> <tr>
-               <td>$</td>
-              </tr>
-              <tr>
-                 <td>$</td>
-              </tr>
-              <tr>
-                <td>$</td>
-              </tr>
-              <tr>
-               <td>$</td>
-              </tr>
-              <br></br>
-            </tbody>
-          </table>
-        </ul>
-      </div>
+      
+      
     
-    <div className='buttonbox'></div>
-    <div className='budget-container'>
-      <h4> My Account</h4>
-      <div>
-        <div className='content'>Total Monthly Budget: fake $1000
-          
-
-        </div>
-        <div className='content'>Total Spent : fake $450
-          
-
-        </div>
-        <div className='content'>Budget : fake $550
-        
-        
-        </div>
-      </div>
-      <Link to='/totaldisplay'>
-      <button className="btn">Input Spending</button>
-      </Link>
-      <Link to='/newbudget'>
-      <button className="btn">Input New Budget</button>
-      </Link>
-    </div>
     </div>
   );
   };
