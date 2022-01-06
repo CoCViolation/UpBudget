@@ -1,14 +1,5 @@
-<<<<<<< HEAD
-import { createStore } from 'redux';
-import { composeWithDevTools } from 'redux-devtools-extension';
-// import reducers from './reducers/index.js';
+import { createSlice} from '@reduxjs/toolkit';
 
-// we are adding composeWithDevTools here to get easy access to the Redux dev tools
-const store = createStore(reducers, composeWithDevTools());
-
-export default store;
-=======
-// import { createStore } from 'redux';
 // import { composeWithDevTools } from 'redux-devtools-extension';
 // import reducers from './reducers/index.js';
 
@@ -16,4 +7,18 @@ export default store;
 // const store = createStore(reducers, composeWithDevTools());
 
 // export default store;
->>>>>>> 1c942680eee19814dde8bd2dd9ff39846119b245
+
+const initialState = {
+
+}
+
+//REDUCERS
+export const budget = addBudget({
+    name: 'budget',
+  initialState: { value: initialState },
+  reducers: {
+      budget: { value}
+  }
+});
+
+export default addBudget.reducer;
