@@ -1,5 +1,5 @@
 import express from 'express';
-import sqlController from '../controllers/sqlController.js';
+import sqlController from '../controllers/sqlcontroller.js';
 
 const router = express.Router();
 
@@ -30,7 +30,7 @@ router.get('/', sqlController.getUser, sqlController.getTransactions, sqlControl
         'categories': res.locals.categories,
         'categoryBudget': res.locals.categoryBudgets
     }
-    // console.log(userData);
+    console.log(userData);
     console.log('sending data back');
     res.status(200).json(userData);
 })
