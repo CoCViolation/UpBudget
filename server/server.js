@@ -1,6 +1,7 @@
 import path, { dirname } from "path";
 import { fileURLToPath } from "url";
 const __dirname = dirname(fileURLToPath(import.meta.url));
+import cors from 'cors';
 
 import express from "express";
 import session from "express-session";
@@ -11,7 +12,6 @@ import sqlRouter from "./routes/sql.js";
 import sqlController from "./controllers/sqlcontroller.js";
 import authRoutes from "./routes/auth-routes.js";
 
-import cors from "cors";
 
 // import BudgetMain from '../client/components/BudgetMain.ejs'
 
@@ -49,8 +49,12 @@ app.use(
   })
 );
 
+<<<<<<< HEAD
 app.use(cookieParser("catSnake"));
 //add passport initialize and sessions
+=======
+// //add passport initialize and sessions
+>>>>>>> dev
 app.use(passport.initialize());
 app.use(passport.session());
 
