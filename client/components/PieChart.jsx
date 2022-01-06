@@ -9,7 +9,6 @@ const PieChart = (props) => {
 
     const {groceries, gym, rent, car_loan, fun_money, student_loan, electronics, day_care, clothing} = props;
 
-    // console.log(groceries.groceries, gym.gym, rent.rent, car_loan.car_loan, fun_money.fun_money, student_loan.student_loan, electronics.electronics, day_care.day_care, clothing.clothing);
       ChartJS.register(ArcElement, Tooltip, Legend);
     
       const data = {
@@ -17,7 +16,7 @@ const PieChart = (props) => {
         datasets: [
           {
             label: 'Monthly Budget',
-            data: [groceries.groceries, gym.gym, rent.rent, car_loan.car_loan, fun_money.fun_money, student_loan.student_loan, electronics.electronics, day_care.day_care, clothing.clothing], //match to data.labels
+            data: [groceries, gym, rent, car_loan, fun_money, student_loan, electronics, day_care, clothing], //match to data.labels
             backgroundColor: [
               'rgba(255, 99, 132, 0.2)',
               'rgba(54, 162, 235, 0.2)',
@@ -47,9 +46,7 @@ const PieChart = (props) => {
 
 
       return (
-        // <div class="chart-container">
             <Pie data ={data}/>
-        // </div>
       )
 
 }
