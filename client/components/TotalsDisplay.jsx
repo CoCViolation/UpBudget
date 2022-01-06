@@ -71,8 +71,9 @@ function TotalsDisplay() {
   }
 
   return (
-    <div className='budget-container'>
+    <div className='sub-budget-container'>
       <div className='content'>
+        <h4>Total Monthly Budget Spend</h4>
         <label className='label'>Groceries: <input type="text" placeholder = "Groceries" value={groceries} className="type" onChange={(e) => setGroceries(e.target.value)}/>
         </label>
         <label className='label'>Gym:

@@ -6,7 +6,6 @@ import BudgetMain from './components/BudgetMain.jsx';
 import NewBudgetForm from './components/NewBudgetForm.jsx';
 import TotalsDisplay from './components/TotalsDisplay.jsx';
 
-
 const App = () => {
   return (
     <Router>
