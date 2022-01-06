@@ -18,6 +18,7 @@ router.get("/login", (req, res) => {
 //authenticate logout
 router.get("/logout", (req, res) => {
   req.logout();
+  req.session.destroy();
   res.redirect("http://localhost:8080");
 });
 

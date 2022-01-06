@@ -65,7 +65,7 @@ passport.use(
             };
 
             //same as return, except it sends back user into req.session.passport
-            done(null, user);
+            return done(null, user);
           }
 
           //else create
