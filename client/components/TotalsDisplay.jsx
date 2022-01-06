@@ -3,6 +3,7 @@ import PieChart from './PieChart';
 import {Link} from 'react-router-dom';
 import { addSpending} from '../store.js'
 import { useSelector, useDispatch } from "react-redux";
+import Navbar from "./Navbar.jsx";
 
 function TotalsDisplay() {
 
@@ -39,6 +40,13 @@ function TotalsDisplay() {
 
 
   return (
+  <div style={{width:'100%',height:'100%'}}>
+
+  <div style={{display:'flex' ,gap:30}}>
+
+
+    <Navbar />
+
     <div className="sub-budget-container">
       <form className='content'>
         <h4>New Budget Form</h4>
@@ -66,6 +74,11 @@ function TotalsDisplay() {
       </form>
         <h4>Total Spending Budget: $ {total(spendState)}</h4>
         {clicked ? <> <PieChart groceries={groceries} gym={gym} rent={rent} car_loan={car_loan} fun_money={fun_money} student_loan={student_loan} electronics={electronics} day_care={day_care} clothing={clothing}/> </> : ''}
+    </div>
+    <div style={{width:'20%'}}>
+
+</div>
+    </div>
     </div>
   )
 }

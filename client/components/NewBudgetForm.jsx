@@ -6,6 +6,7 @@ import "../styles.scss";
 import {Link} from 'react-router-dom';
 import { addBudget} from '../store.js'
 import { useSelector, useDispatch } from "react-redux";
+import Navbar from "./Navbar.jsx";
 
 const NewBudgetForm = () => {
 
@@ -33,6 +34,13 @@ const NewBudgetForm = () => {
 
 
   return (
+  <div style={{width:'100%',height:'100%'}}>
+
+  <div style={{display:'flex' ,gap:30}}>
+
+
+    <Navbar />
+
     <div className="sub-budget-container">
       <form className='content'>
         <h4>New Budget Form</h4>
@@ -57,10 +65,18 @@ const NewBudgetForm = () => {
         <button type='button' className='btn' onClick={()=>isClicked()}>Submit</button>
         <Link style={{textDecoration:'none', fontSize:'13px'}} className='btn' to="/budgetmain">Go Back</Link>
       </form>
+
+      <div className='sub-sub-budget-container'>
+        {clicked ? <> <PieChart groceries={groceries} gym={gym} rent={rent} car_loan={car_loan} fun_money={fun_money} student_loan={student_loan} electronics={electronics} day_care={day_care} clothing={clothing}/> </> : ''}
+      </div>
+
+
+    </div>
+
+    </div>
     </div>
   );
 };
 
 export default NewBudgetForm;
 
-// onChange={(e) => setGroceries(e.target.value)}

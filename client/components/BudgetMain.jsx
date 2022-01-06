@@ -7,6 +7,7 @@ import BarChart from './BarChart.jsx';
 const sampleUserData = require('../sample user data.json');
 const transactionsList = sampleUserData.transactions;
 import { useSelector } from "react-redux";
+import Navbar from "./Navbar.jsx";
 
 const BudgetMain = () => {
 
@@ -57,8 +58,17 @@ const BudgetMain = () => {
   })
 
   return (
+  <div style={{width:'100%',height:'100%'}}>
+
+    <div style={{display:'flex' ,gap:30}}>
+
+  
+      <Navbar />
+
     <div className='container budget-container'>
-      <div className='header1'> My Account</div>
+      
+    
+
       <div className='header2'> Hi User! </div>
       <div className='budget-container'>
       <h4> My Account</h4>
@@ -84,7 +94,8 @@ const BudgetMain = () => {
         </Link>
       </div>
 
-      {/* <div id="testcomponent">{sampleUserData.transactions}</div> */}
+      <BarChart budget={budgetState} spending={spendingState}/>
+
       <div id="transactions-list" className='content-medium1'>
         <br/>
         <ul className='transactions'>
@@ -100,61 +111,14 @@ const BudgetMain = () => {
           </table>
         </ul>
       </div>
-      <div className='content-large'>Total Monthly Budget:
-        
-        <ul className='categories'>
-          <table>
-            <thead>
-              <br></br>
-              <tr>
-                <th> Spending So far: </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-              <td>Groceries</td>
-              <td>$</td>
-              </tr>
-              <tr>
-              <td>Gym</td>
-              <td>$</td>
-              </tr>
-              <tr>
-              <td>Rent</td>
-              <td>$</td>
-              </tr>
-              <tr>
-              <td>Car Loan</td>
-              <td>$</td>
-              </tr>
-              <tr>
-              <td>Fun Money</td>
-              <td>$</td>
-              </tr>
-              <tr>
-              <td>Student Loan</td>
-              <td>$</td>
-              </tr>
-              <tr>
-              <td>Electronics</td>
-              <td>$</td>
-              </tr>
-              <tr>
-              <td>Day Care</td>
-              <td>$</td>
-              </tr>
-              <tr>
-              <td>Clothing</td>
-              <td>$</td>
-              </tr>
-              <br></br>
-            </tbody>
-          </table> 
-        </ul>
-      </div>
-      
-      <BarChart budget={budgetState} spending={spendingState}/>
     
+    </div>
+    <div style={{width:'20%'}}>
+
+    </div>
+
+    
+    </div>
     </div>
   );
   };

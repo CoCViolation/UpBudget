@@ -49,7 +49,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <div style={{ width: "100%" }}>
+    <div style={{ width: "300px" }}>
       <Box style={{ flexGrow: 1 }}>
         <AppBar position="static">
           <Toolbar variant="dense" style={styles.appbar}>

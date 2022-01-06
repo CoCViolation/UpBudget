@@ -42,7 +42,7 @@ const Sidebar = () => {
   ];
 
   return (
-    <div className="sidebar" style={{ height: "100%", borderRadius: "10px" }}>
+    <div className="sidebar" style={{ height: "100%" ,width:"100%" }}>
       <br></br>
 
       <div className="sidebarlogo-container">

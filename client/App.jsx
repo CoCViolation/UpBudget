@@ -12,7 +12,9 @@ const App = () => {
   const config = useSelector((state) => state.config);
   const dispatch = useDispatch();
   return (
+    
     <Router>
+      {/* <Navbar /> */}
       <Routes>
         <Route path="/navbar" element={<Navbar />} />
         <Route path="/" element={<Login />} />
