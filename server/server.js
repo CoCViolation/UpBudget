@@ -1,17 +1,16 @@
 import path, { dirname } from "path";
 import { fileURLToPath } from "url";
 const __dirname = dirname(fileURLToPath(import.meta.url));
-import cors from 'cors';
+import cors from "cors";
 
 import express from "express";
 import session from "express-session";
 import passport from "passport";
 import GoogleStrategy from "passport-google-oidc";
-
+import cookieParser from "cookie-parser";
 import sqlRouter from "./routes/sql.js";
 import sqlController from "./controllers/sqlcontroller.js";
 import authRoutes from "./routes/auth-routes.js";
-
 
 // import BudgetMain from '../client/components/BudgetMain.ejs'
 
@@ -20,7 +19,7 @@ import * as passportSetup from "./passport-setup.js";
 const app = express();
 
 const PORT = 3000;
-
+app.set("trust proxy", 1);
 //will parse all json
 app.use(express.json());
 //will break down queries in the requested URL.
@@ -41,51 +40,34 @@ app.use("/auth", authRoutes);
 //need express sessions. Must look this up.
 app.use(
   session({
-    secret: "keyboard cat",
+    secret: "catSnake",
     resave: false,
-    saveUninitialized: false,
-    cookie: { maxAge: 5000 },
+    saveUninitialized: true,
+    secure: true,
+    cookie: { maxAge: 600000, httpOnly: false },
   })
 );
 
+app.use(cookieParser("catSnake"));
+//add passport initialize and sessions
 // //add passport initialize and sessions
 app.use(passport.initialize());
 app.use(passport.session());
 
-//TEST ROUTE FOR EXPRESS SESSIONS. EXPRESS SESSIONS REQUIRED FOR PASSPORT SESSIONS
-app.get("/test", function (req, res, next) {
-  // if the session exists, it should have req.session.views.
-  if (req.session.views) {
-    //increments views
-    req.session.views++;
-    // set headers and writes to client the number of views and when the cookie will expire.
-    // Since the cookie's maxAge is set when the user refreshes, it is always 60s.
-    // Once the cookie times out, it clears the session
-    res.setHeader("Content-Type", "text/html");
-    res.write("<p>views: " + req.session.views + "</p>");
-    res.write("<p>expires on: " + req.session.cookie.maxAge / 1000 + "s</p>");
-    res.end();
-    //if first time or the cookie is expired, it goes here!
-    // session will send a cookie with a specific connect.sid per user? (i think, must verify) with the expiration time
-  } else {
-    req.session.views = 1;
-    res.end("welcome to the session demo. refresh!");
-  }
-});
-
 //start writing route handlers here
 app.use("/sql", sqlRouter);
-
-//passport doesn't seem to be able to be put into routers or controllers
 
 // app.get('/budgetMain', (req, res, ) => {
 //   res.status(200).render('BudgetMain');
 // })
 
+app.get("http://localhost:8080/budgetmain", (req, res) => {
+  console.log(req.session);
+});
+
 // catch-all route handler for any requests to an unknown route
-app.use("/:address", (req, res) => {
-  console.log(req.params.address);
-  res.status(404).send(`Nothing here at the catchall of ${req.params.address}`);
+app.get("*", function (req, res, next) {
+  res.status(301).redirect("/Page you are looking for is not-found");
 });
 
 app.use((err, req, res, next) => {
