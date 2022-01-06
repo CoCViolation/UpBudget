@@ -9,7 +9,7 @@ router.use((req, res, next) => {
 
   // checks to see if it has property passport.
   // passport.hasownproperty gets a middleware error for some reason
-  console.log(req);
+  // console.log(req);
   const hasProperty = req._passport;
   console.log(hasProperty);
 
@@ -38,8 +38,8 @@ router.get(
       categories: res.locals.categories,
       categoryBudget: res.locals.categoryBudgets,
     };
-    console.log(userData);
-    console.log("sending data back");
+    // console.log(userData);
+    // console.log("sending data back");
     res.status(200).json(userData);
   }
 );

@@ -6,6 +6,7 @@ p {
 
 body {
   font-family: "Work Sans", sans-serif;
+  background-color: rgb(228, 236, 236);
 }
 #app {
   display: flex;
@@ -23,11 +24,51 @@ h4 {
   text-align: center;
 }
 
-<<<<<<< HEAD
 .budget-container {
-  width: 500px;
-=======
-.budget-container{
+  width: 70%;
+  height: fit-content;
+  padding: 10px 30px;
+  // margin: 30px auto 20px auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: rgb(228, 236, 236);
+  position: inherit;
+  border-radius: 20px;
+  border-color: lightblue;
+}
+
+.MuiToolbar-root
+  MuiToolbar-gutters
+  MuiToolbar-dense
+  css-10ltm04-MuiToolbar-root {
+  width: 30%;
+}
+.sidebarlogo-container {
+  width: fit-content;
+}
+
+.sidebar {
+  width: fit-content;
+}
+
+.sub-budget-container {
+  width: 50%;
+  height: fit-content;
+  padding: 10px 30px;
+  margin: 30px auto 20px auto;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: rgb(228, 236, 236);
+  position: inherit;
+  border-radius: 20px;
+  border-color: lightblue;
+}
+
+.sub-sub-budget-container {
   width: 70%;
   height: fit-content;
   padding: 10px 30px;
@@ -35,22 +76,7 @@ h4 {
   justify-content: center;
   align-items: center;
   text-align: center;
-  background-color: rgb(206, 229, 230);
-  position: inherit;
-  border-radius: 20px;
-  border-color: lightblue;
-}
-
-.sub-budget-container{
-  width: 50%;
->>>>>>> dev
-  height: fit-content;
-  padding: 10px 30px;
-  margin: 30px auto 20px auto;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  background-color: rgb(206, 229, 230);
+  background-color: rgb(228, 236, 236);
   position: inherit;
   border-radius: 20px;
   border-color: lightblue;
