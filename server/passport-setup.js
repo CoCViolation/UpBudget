@@ -23,8 +23,8 @@ passport.use(
   new GoogleStrategy(
     {
       clientID:
-        "727386536210-elnebrjg7nhb97m29s7nr6478i17chdo.apps.googleusercontent.com",
-      clientSecret: "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",
+      GOOGLE_CLIENT_ID,
+      clientSecret: GOOGLE_CLIENT_SECRET,
       callbackURL: "http://localhost:3000/auth/google/callback",
     },
     // this is the callback AFTER THE SECOND invokation of authenticate.
