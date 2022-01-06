@@ -3,21 +3,21 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Pie } from 'react-chartjs-2';
+import "../styles.scss";
 
 const PieChart = (props) => {
 
-    const {groceries, gym, rent, car_loan, fun_money,student_loan, electronics, day_care, clothing} = props;
-    
+    const {groceries, gym, rent, car_loan, fun_money, student_loan, electronics, day_care, clothing} = props;
+
+    // console.log(groceries.groceries, gym.gym, rent.rent, car_loan.car_loan, fun_money.fun_money, student_loan.student_loan, electronics.electronics, day_care.day_care, clothing.clothing);
       ChartJS.register(ArcElement, Tooltip, Legend);
     
       const data = {
-        labels: ['Gym', 'Rent', 'Car Loan', 'Fun Money', 'Student Loan', 'Electronics'],
+        labels: ['Groceries', 'Gym', 'Rent', 'Car Loan', 'Fun Money', 'Student Loan', 'Electronics', 'Day Care', 'Clothing'],
         datasets: [
           {
-            label: '# of Votes',
-            data: [25, 19, 3, 5, 2, 3], //match to data.labels
-            // data: [spending.groceries, spending.gym, spending.rent, spending.car_loan, spending.fun_money, spending.student_loan, spending.electronics, spending.day_care, spending.clothing], //match to data.labels
-            // data: [groceries, gym, rent, car_loan, fun_money, student_loan], //match to data.labels
+            label: 'Monthly Budget',
+            data: [groceries.groceries, gym.gym, rent.rent, car_loan.car_loan, fun_money.fun_money, student_loan.student_loan, electronics.electronics, day_care.day_care, clothing.clothing], //match to data.labels
             backgroundColor: [
               'rgba(255, 99, 132, 0.2)',
               'rgba(54, 162, 235, 0.2)',
@@ -25,6 +25,9 @@ const PieChart = (props) => {
               'rgba(75, 192, 192, 0.2)',
               'rgba(153, 102, 255, 0.2)',
               'rgba(255, 159, 64, 0.2)',
+              'rgba(255, 192, 203, 0.2)',
+              'rgba(116, 60, 148, 0.2)',
+              'rgba(148, 60, 89, 0.2)',
             ],
             borderColor: [
               'rgba(255, 99, 132, 1)',
@@ -33,6 +36,9 @@ const PieChart = (props) => {
               'rgba(75, 192, 192, 1)',
               'rgba(153, 102, 255, 1)',
               'rgba(255, 159, 64, 1)',
+              'rgba(255, 192, 203, 1)',
+              'rgba(116, 60, 148, 1)',
+              'rgba(148, 60, 89, 1)',
             ],
             borderWidth: 1,
           },
@@ -41,7 +47,9 @@ const PieChart = (props) => {
 
 
       return (
-        <Pie data ={data}/>
+        // <div class="chart-container">
+            <Pie data ={data}/>
+        // </div>
       )
 
 }
