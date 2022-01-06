@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 // import useForm from 'react-hook-form';
 import PieChart from './PieChart.jsx';
 import "../styles.scss";
+import {Link} from 'react-router-dom';
 
 const NewBudgetForm = () => {
   // const [form, setForm] = useState({
@@ -40,29 +41,23 @@ const NewBudgetForm = () => {
   // }, [clicked])
 
   return (
-    // <div className="NewBudgetForm">
-      <div>
-      {/* <form> */}
+    <div className="budget-container">
+      <form>
         <input type="text" placeholder = "Groceries" name="groceries" className="type" />
         <input type="text" placeholder = "Gym" name="gym" className="type" onChange={(e) => setGym(e.target.value)}/>
         <input type="text" placeholder = "Rent" name="rent" className="type" onChange={(e) => setRent(e.target.value)}/>
         <input type="text" placeholder = "Car Loan" name="car loan" className="type" onChange={(e) => setCar_loan(e.target.value)}/>
         <input type="text" placeholder = "Fun Money" name="fun money" className="type" onChange={(e) => setFun_money(e.target.value)}/>
         <input type="text" placeholder = "Student Loan" name="student loan" className="type" onChange={(e) => setStudent_loan(e.target.value)}/>
-        {/* <input type="text" placeholder = "Electronics" name="electronics" className="type" onChange={(e) => setElectronics(e.target.value)}/>
+        <input type="text" placeholder = "Electronics" name="electronics" className="type" onChange={(e) => setElectronics(e.target.value)}/>
         <input type="text" placeholder = "Day Care" name="day care" className="type" onChange={(e) => setDaycare(e.target.value)}/>
-        <input type="text" placeholder = "Clothing" name="clothing" className="type" onChange={(e) => setClothing(e.target.value)}/> */}
+        <input type="text" placeholder = "Clothing" name="clothing" className="type" onChange={(e) => setClothing(e.target.value)}/>
         <button type='button' onClick={()=>{
           clicked ? setClicked(false) : setClicked(true);
           }}>Submit</button>
-          {/* <button onClick={()=>console.log('hello')}>test</button> */}
-          {/* <button onClick={console.log('here')}>here</button> */}
-      {/* </form> */}
-      {/* <div> */}
-        {/* {clicked ? <> <PieChart props={groceries, gym, rent, car_loan, fun_money, student_loan}/> </> : ''} */}
+          <Link style={{textDecoration:'none', fontSize:'13px'}} className='btn' to="/budgetmain">Go Back</Link>
+      </form>
         {clicked ? <> <PieChart/> </> : ''}
-        {/* <PieChart/> */}
-      {/* </div> */}
     </div>
  
   );
