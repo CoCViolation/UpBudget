@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import {Link} from 'react-router-dom';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Pie } from 'react-chartjs-2';
+import BarChart from './BarChart.jsx';
 const sampleUserData = require('../sample user data.json');
 const transactionsList = sampleUserData.transactions;
 import { useSelector } from "react-redux";
@@ -11,14 +12,14 @@ const BudgetMain = () => {
 
   const budgetState = useSelector((state) => state.config.budget);
   const spendingState = useSelector((state) => state.config.spending);
-  console.log(budgetState);
+  // console.log(budgetState);
 
   const total = state => {
     let sum = 0;
     for (const category in state){
       sum+= Number(state[category]);
     }
-    console.log(sum);
+    // console.log(sum);
     return sum;
   };
  
@@ -154,7 +155,7 @@ const BudgetMain = () => {
         </ul>
       </div>
       
-      
+      <BarChart budget={budgetState} spending={spendingState}/>
     
     </div>
   );
