@@ -1,24 +1,24 @@
-import React, { Component } from 'react';
-// import { connect } from 'react-redux';
-
+import React, { useEffect, useState } from 'react';
+// import "../styles.scss";
 import {Link} from 'react-router-dom';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Pie } from 'react-chartjs-2';
 const sampleUserData = require('../sample user data.json');
 const transactionsList = sampleUserData.transactions;
-class BudgetMain extends Component {
-  constructor(props) {
-    super (props);
-    this.state = {
-      
-    };
-  }
+import { useSelector } from "react-redux";
 
+const BudgetMain = () => {
 
+  const budgetState = useSelector((state) => state.config.budget);
+  console.log(budgetState);
+
+  const [newbudgetState, setbudgetState] = useState(budgetState);
+
+  
   // we'll be using this fetch request to pull user from localhost:3000/sql
   // and we can then manipulate it however we want to make it fit the graphs
   // we want to build
-  componentDidMount() {
+  useEffect(() => {
   // for now, I can't run localhost:3000 for whatever reason, but I'm 99% sure this syntax
   // is correct, so I'm building out the logic by just importing from the sample-user-data.json
   // file which contains a lot of the same data, we should only require a few tweaks to make it fit
@@ -46,11 +46,12 @@ class BudgetMain extends Component {
       console.log("This is the amount",transactionsList[i].amount)
     }
 
-  }
+  })
 
-  render() {
+
   return (
     <div className='container budget-container'>
+      <div>testing, this is budgetState Groceries! {budgetState.groceries.groceries}</div>
       <div className='header1'> My Account</div>
       <div className='header2'> Hi User! </div>
       <div className='budget-container'>
@@ -150,8 +151,7 @@ class BudgetMain extends Component {
     
     </div>
   );
-  }
-};
+  };
 
 export default BudgetMain;
 //state = {userData, categories, transactions, categoryBudget}
