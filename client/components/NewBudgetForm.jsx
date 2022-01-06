@@ -28,25 +28,25 @@ const NewBudgetForm = () => {
 
 
   return (
-    <div className="NewBudgetForm">
+    <div className="budget-container">
       <form>
-        <label for="groceries">Groceries:</label>
+        <label className='label'>Groceries:</label>
         <input type="text" placeholder = "Groceries" name="groceries" className="type" onChange={(e) => setGroceries({groceries: e.target.value})}/>
-        <label for="gym">Gym:</label>
+        <label className='label'>Gym:</label>
         <input type="text" placeholder = "Gym" name="gym" className="type" onChange={(e) => setGym({gym: e.target.value})}/>
-        <label for="rent">Rent:</label>
+        <label className='label'>Rent:</label>
         <input type="text" placeholder = "Rent" name="rent" className="type" onChange={(e) => setRent({rent: e.target.value})}/>
-        <label for="car loan">Fun Money:</label>
+        <label className='label'>Fun Money:</label>
         <input type="text" placeholder = "Car Loan" name="car loan" className="type" onChange={(e) => setCar_loan({car_loan: e.target.value})}/>
-        <label for="fun money">Fun Money:</label>
+        <label className='label'>Fun Money:</label>
         <input type="text" placeholder = "Fun Money" name="fun money" className="type" onChange={(e) => setFun_money({ fun_money: e.target.value})}/>
-        <label for="student loan">Student Loan:</label>
+        <label className='label'>Student Loan:</label>
         <input type="text" placeholder = "Student Loan" name="student loan" className="type" onChange={(e) => setStudent_loan({student_loan: e.target.value})}/>
-        <label for="electronics">Electronics:</label>
+        <label className='label'>Electronics:</label>
         <input type="text" placeholder = "Electronics" name="electronics" className="type" onChange={(e) => setElectronics({ electronics: e.target.value})}/>
-        <label for="day care">Day Care:</label>
+        <label className='label'>Day Care:</label>
         <input type="text" placeholder = "Day Care" name="day care" className="type" onChange={(e) => setDaycare({ day_care: e.target.value})}/>
-        <label for="clothing">Clothing:</label>
+        <label className='label'>Clothing:</label>
         <input type="text" placeholder = "Clothing" name="clothing" className="type" onChange={(e) => setClothing({ clothing: e.target.value})}/>
         <button type='button' class='btn' onClick={()=>{
           clicked ? setClicked(false) : setClicked(true);
