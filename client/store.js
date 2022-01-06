@@ -1,24 +1,49 @@
 import { createSlice} from '@reduxjs/toolkit';
 
-// import { composeWithDevTools } from 'redux-devtools-extension';
-// import reducers from './reducers/index.js';
-
-// // we are adding composeWithDevTools here to get easy access to the Redux dev tools
-// const store = createStore(reducers, composeWithDevTools());
-
-// export default store;
-
 const initialState = {
-
+    budget: { 
+        groceries : 0, 
+        gym : 0, 
+        rent : 0, 
+        car_loan : 0, 
+        fun_money : 0, 
+        student_loan : 0, 
+        electronics : 0, 
+        day_care : 0, 
+        clothing : 0
+    },
+    spending: { 
+        groceries : 0, 
+        gym : 0, 
+        rent : 0, 
+        car_loan : 0, 
+        fun_money : 0, 
+        student_loan : 0, 
+        electronics : 0, 
+        day_care : 0, 
+        clothing : 0
+    }
 }
 
-//REDUCERS
-export const budget = addBudget({
-    name: 'budget',
-  initialState: { value: initialState },
+export const configurationSlice = createSlice({
+  name: 'configuration',
+  initialState: initialState,
   reducers: {
-      budget: { value}
+    addBudget: (state, action) => {
+        state.budget = action.payload;
+    },
+    resetBudget: (state, action) => {
+        state.budget = initialState;
+    },
+    addSpending: (state, action) => {
+        state.spending = action.payload;
+    },
+    resetSpending: (state, action) => {
+        state.spending = initialState;
+    }
   }
 });
 
-export default addBudget.reducer;
+export const { addBudget, resetBudget, addSpending, resetSpending } = configurationSlice.actions;
+
+export default configurationSlice.reducer;

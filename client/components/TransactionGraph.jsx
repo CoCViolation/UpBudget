@@ -6,8 +6,6 @@ import { Line } from 'react-chartjs-2';
 
 const PieChart = (props) => {
 
-    // const {groceries, gym, rent, car_loan, fun_money,student_loan, electronics, day_care, clothing} = props;
-    // const {groceries, gym, rent, car_loan, fun_money,student_loan} = props;
     
       ChartJS.register(ArcElement, Tooltip, Legend);
     
@@ -17,8 +15,7 @@ const PieChart = (props) => {
           {
             label: '# of Votes',
             data: [25, 19, 3, 5, 2, 3], //match to data.labels
-            // data: [spending.groceries, spending.gym, spending.rent, spending.car_loan, spending.fun_money, spending.student_loan, spending.electronics, spending.day_care, spending.clothing], //match to data.labels
-            // data: [groceries, gym, rent, car_loan, fun_money, student_loan], //match to data.labels
+
             backgroundColor: [
               'rgba(255, 99, 132, 0.2)',
               'rgba(54, 162, 235, 0.2)',
