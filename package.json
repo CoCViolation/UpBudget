@@ -13,6 +13,7 @@
   "dependencies": {
     "body-parser": "^1.19.1",
     "browser-router": "^0.2.0",
+    "cookie-parser": "^1.4.6",
     "chart.js": "^3.7.0",
     "cors": "^2.8.5",
     "css-loader": "^6.5.1",
