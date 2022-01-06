@@ -24,7 +24,7 @@ describe('db unit tests', () => {
     });
   
     describe('#getUser', () => {
-      it('writes a valid getUser to the JSON file', () => {
+      xit('writes a valid getUser to the JSON file', () => {
         
       });
   
