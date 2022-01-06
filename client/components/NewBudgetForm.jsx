@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 // import useForm from 'react-hook-form';
 import PieChart from './PieChart.jsx';
-// import "../styles.scss";
+import "../styles.scss";
 
 const NewBudgetForm = () => {
   // const [form, setForm] = useState({

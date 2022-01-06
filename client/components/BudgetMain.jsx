@@ -207,18 +207,34 @@ class BudgetMain extends Component {
               <br></br>
             </tbody>
           </table>
-        </ul></div>
-      <div className='buttonbox'>
-      <Link to='/totaldisplay'>
-      <button className="button">Input Spending</button>
-      </Link>
-      <br></br>
-      <Link to='/newbudget'>
-      <button className="button">Input New Budget</button>
-      </Link>
+        </ul>
       </div>
-      {/* <Pie data ={data}/> */}
-     </div>
+    
+    <div className='buttonbox'></div>
+    <div className='budget-container'>
+      <h4> My Account</h4>
+      <div>
+        <div className='content'>Total Monthly Budget: fake $1000
+          
+
+        </div>
+        <div className='content'>Total Spent : fake $450
+          
+
+        </div>
+        <div className='content'>Budget : fake $550
+        
+        
+        </div>
+      </div>
+      <Link to='/totaldisplay'>
+      <button className="btn">Input Spending</button>
+      </Link>
+      <Link to='/newbudget'>
+      <button className="btn">Input New Budget</button>
+      </Link>
+    </div>
+    </div>
   );
   }
 };
