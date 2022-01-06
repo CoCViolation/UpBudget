@@ -10,14 +10,19 @@ import { useSelector } from "react-redux";
 const BudgetMain = () => {
 
   const budgetState = useSelector((state) => state.config.budget);
-  // console.log(budgetState);
-  const spendState = useSelector((state) => state.config.spending);
-  console.log(spendState);
+  const spendingState = useSelector((state) => state.config.spending);
+  console.log(budgetState);
 
-  const [newbudgetState, setbudgetState] = useState(budgetState);
-  const [newspendState, setSpendState] = useState(spendState);
+  const total = state => {
+    let sum = 0;
+    for (const category in state){
+      sum+= Number(state[category]);
+    }
+    console.log(sum);
+    return sum;
+  };
+ 
 
-  
   // we'll be using this fetch request to pull user from localhost:3000/sql
   // and we can then manipulate it however we want to make it fit the graphs
   // we want to build
@@ -46,7 +51,7 @@ const BudgetMain = () => {
       name.innerHTML = `<b>transaction name:</b> ${transactionsList[i].name}`
       date.innerHTML = `<b>date:</b> ${transactionsList[i].date.slice(0, 10)}`
       amount.innerHTML = `<b>amount:</b> $${transactionsList[i].amount}`;
-      console.log("This is the amount",transactionsList[i].amount)
+      // console.log("This is the amount",transactionsList[i].amount)
     }
 
   })
@@ -54,22 +59,20 @@ const BudgetMain = () => {
 
   return (
     <div className='container budget-container'>
-      {/* <div>testing, this is budgetState Groceries! {budgetState.groceries.groceries}</div> */}
-      <div>testing, this is budgetState Groceries! {spendState.groceries.groceries}</div>
       <div className='header1'> My Account</div>
       <div className='header2'> Hi User! </div>
       <div className='budget-container'>
       <h4> My Account</h4>
       <div>
-        <div className='content'>Total Monthly Budget: fake $1000
+        <div className='content'>Total Monthly Budget: $ {total(budgetState)}
           
 
         </div>
-        <div className='content'>Total Spent : 
+        <div className='content'>Total Spent : $ {total(spendingState)}
           
 
         </div>
-        <div className='content'>Budget : fake $550
+        <div className='content'>Budget : $ {total(budgetState) - total(spendingState)}
         
         
         </div>

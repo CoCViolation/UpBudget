@@ -22,7 +22,6 @@ const initialState = {
         electronics : 0, 
         day_care : 0, 
         clothing : 0,
-        total: 0,
     }
 }
 
