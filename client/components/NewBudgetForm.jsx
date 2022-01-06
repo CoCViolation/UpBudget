@@ -1,68 +1,4 @@
-<<<<<<< HEAD
-import React, { Component } from "react";
-import useForm from "react-hook-form";
 
-const NewBudgetForm = () => {
-  const submitHandler = () => {
-    console.log("HELLO");
-  };
-
-  return (
-    <div className="NewBudgetForm">
-      <form
-        onSubmit={(e) => {
-          console.log("HELLO");
-          e.preventDefault();
-          submitHandler();
-        }}
-      >
-        <input
-          type="text"
-          placeholder="Groceries"
-          name="groceries"
-          className="type"
-        />
-        <input type="text" placeholder="Gym" name="gym" className="type" />
-        <input type="text" placeholder="Rent" name="rent" className="type" />
-        <input
-          type="text"
-          placeholder="Car Loan"
-          name="car loan"
-          className="type"
-        />
-        <input
-          type="text"
-          placeholder="Fun Money"
-          name="fun money"
-          className="type"
-        />
-        <input
-          type="text"
-          placeholder="Student Loan"
-          name="student loan"
-          className="type"
-        />
-        <input
-          type="text"
-          placeholder="Electronics"
-          name="electronics"
-          className="type"
-        />
-        <input
-          type="text"
-          placeholder="Day Care"
-          name="day care"
-          className="type"
-        />
-        <input
-          type="text"
-          placeholder="Clothing"
-          name="clothing"
-          className="type"
-        />
-        <input type="submit" value="Click" />
-      </form>
-=======
 import React, { useState } from 'react';
 // import useForm from 'react-hook-form';
 import PieChart from './PieChart.jsx';
@@ -82,7 +18,7 @@ const NewBudgetForm = () => {
   const [clothing, setClothing] = useState({ clothing: 0 });
   const [clicked, setClicked] = useState(false);
 
- 
+
   const isCLicked  = () => {
     // e.preventDefault();
     console.log('helllo')
@@ -116,21 +52,13 @@ const NewBudgetForm = () => {
         <button type='button' class='btn' onClick={()=>{
           clicked ? setClicked(false) : setClicked(true);
           }}>Submit</button>
-<<<<<<< HEAD
-          {/* <button onClick={()=>console.log('hello')}>test</button> */}
-          {/* <button onClick={console.log('here')}>here</button> */}
-      {/* </form> */}
-      {/* <div> */}
-        {/* {clicked ? <> <PieChart props={groceries, gym, rent, car_loan, fun_money, student_loan}/> </> : ''} */}
+
         {clicked ? <> <PieChart/> </> : ''}
-        {/* <PieChart/> */}
-      {/* </div> */}
->>>>>>> dev
-=======
+
         <Link style={{textDecoration:'none', fontSize:'13px'}} className='btn' to="/budgetmain">Go Back</Link>
       </form>
         {clicked ? <> <PieChart groceries={groceries} gym={gym} rent={rent} car_loan={car_loan} fun_money={fun_money} student_loan={student_loan} electronics={electronics} day_care={day_care} clothing={clothing}/> </> : ''}
->>>>>>> dev
+
     </div>
   );
 };
