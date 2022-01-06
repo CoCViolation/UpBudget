@@ -14,7 +14,7 @@ body {
 h4 {
   font-family: "Work Sans", sans-serif;
   font-weight: bolder;
-  color: ivory;
+  color: #0aa06c;
 }
 
 .login-container {
@@ -23,8 +23,27 @@ h4 {
   text-align: center;
 }
 
+<<<<<<< HEAD
 .budget-container {
   width: 500px;
+=======
+.budget-container{
+  width: 70%;
+  height: fit-content;
+  padding: 10px 30px;
+  margin: 30px auto 20px auto;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: rgb(206, 229, 230);
+  position: inherit;
+  border-radius: 20px;
+  border-color: lightblue;
+}
+
+.sub-budget-container{
+  width: 50%;
+>>>>>>> dev
   height: fit-content;
   padding: 10px 30px;
   margin: 30px auto 20px auto;
