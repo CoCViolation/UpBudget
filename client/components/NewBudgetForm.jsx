@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 // import useForm from 'react-hook-form';
 import PieChart from './PieChart.jsx';
 import "../styles.scss";
+import {Link} from 'react-router-dom';
 
 const NewBudgetForm = () => {
 
@@ -47,9 +48,10 @@ const NewBudgetForm = () => {
         <input type="text" placeholder = "Day Care" name="day care" className="type" onChange={(e) => setDaycare({ day_care: e.target.value})}/>
         <label for="clothing">Clothing:</label>
         <input type="text" placeholder = "Clothing" name="clothing" className="type" onChange={(e) => setClothing({ clothing: e.target.value})}/>
-        <button type='button' onClick={()=>{
+        <button type='button' class='btn' onClick={()=>{
           clicked ? setClicked(false) : setClicked(true);
           }}>Submit</button>
+        <Link style={{textDecoration:'none', fontSize:'13px'}} className='btn' to="/budgetmain">Go Back</Link>
       </form>
         {clicked ? <> <PieChart groceries={groceries} gym={gym} rent={rent} car_loan={car_loan} fun_money={fun_money} student_loan={student_loan} electronics={electronics} day_care={day_care} clothing={clothing}/> </> : ''}
     </div>
