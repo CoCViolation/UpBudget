@@ -1,12 +1,14 @@
 @import url("https://fonts.googleapis.com/css?family=Crimson+Text|Work+Sans:400,700");
 
-
 p {
   margin: 10px 0 !important;
 }
 
-body{
+body {
   font-family: "Work Sans", sans-serif;
+}
+#app {
+  display: flex;
 }
 
 h4 {
@@ -21,7 +23,7 @@ h4 {
   text-align: center;
 }
 
-.budget-container{
+.budget-container {
   width: 500px;
   height: fit-content;
   padding: 10px 30px;
@@ -35,7 +37,7 @@ h4 {
   border-color: lightblue;
 }
 
-.content{
+.content {
   width: 70%;
   height: 20%;
   margin: 8px;
@@ -53,13 +55,13 @@ h4 {
   cursor: pointer;
 }
 
-.label{
+.label {
   font-size: larger;
   font-weight: bolder;
   color: #0aa06c;
 }
 
-.totalSpend{
+.totalSpend {
   font-size: larger;
   font-weight: bolder;
   color: red;
@@ -89,4 +91,65 @@ h4 {
 
 .chart-container {
   height: 20vh;
+}
+
+.sidebar {
+  height: 100%;
+  width: 300px;
+  background-color: rgb(206, 229, 230);
+}
+
+.sidebarlogo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sidebarlogo {
+  width: 80%;
+  height: 30%;
+}
+
+.sidebar .sidebarUser {
+  display: flex;
+  justify-content: center;
+  padding-top: 10px;
+}
+
+.sidebarList {
+  height: auto;
+  padding: 0;
+  width: 100%;
+}
+
+.sidebarList .sidebarRow {
+  width: 100%;
+  height: 60px;
+  list-style-type: none;
+  margin: 0%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+
+.sidebarList .sidebarRow:hover {
+  cursor: pointer;
+  background-color: rgb(255, 255, 239);
+}
+
+.sidebarList .sidebarRow #active {
+  background-color: rgb(255, 255, 239);
+}
+
+.sidebarRow #icon {
+  flex: 40%;
+  display: grid;
+  place-items: center;
+}
+
+.sidebarRow #title {
+  flex: 60%;
 }

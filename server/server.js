@@ -29,11 +29,15 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(
   cors({
-    origin: "http://localhost:8080/",
-    methods: "GET,POST,PUT,DELETE",
-    credentials: true,
+    origin: "http://localhost:8080",
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    cretentials: true,
   })
 );
+
+// app.use((req, res, next) => {
+//   next();
+// });
 
 app.use("/auth", authRoutes);
 
@@ -57,6 +61,10 @@ app.use(passport.session());
 //start writing route handlers here
 app.use("/sql", sqlRouter);
 
+app.get("/evan", (req, res) => {
+  res.send("HEY IAM EVAN HERE");
+});
+
 // app.get('/budgetMain', (req, res, ) => {
 //   res.status(200).render('BudgetMain');
 // })
@@ -66,9 +74,9 @@ app.get("http://localhost:8080/budgetmain", (req, res) => {
 });
 
 // catch-all route handler for any requests to an unknown route
-app.get("*", function (req, res, next) {
-  res.status(301).redirect("/Page you are looking for is not-found");
-});
+// app.get("*", function (req, res, next) {
+//   res.status(301).redirect("/Page you are looking for is not-found");
+// });
 
 app.use((err, req, res, next) => {
   const defaultErr = {
