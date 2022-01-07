@@ -54,7 +54,7 @@ const Sidebar = () => {
       </div>
       <br></br>
 
-      <div className="sidebarUser">HI USER!!!!</div>
+      <div className="sidebarUser"></div>
       <ul className="sidebarList">
         {sidebarData.map((val, key) => {
           return (

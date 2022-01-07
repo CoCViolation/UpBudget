@@ -72,6 +72,9 @@ const NewBudgetForm = () => {
 
 
     </div>
+    <div style={{width:'20%'}}>
+
+    </div>
 
     </div>
     </div>

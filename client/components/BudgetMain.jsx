@@ -69,7 +69,7 @@ const BudgetMain = () => {
       
     
 
-      <div className='header2'> Hi User! </div>
+      <div className='header2'> WELCOME! </div>
       <div className='budget-container'>
       <h4> My Account</h4>
       <div>
@@ -86,12 +86,14 @@ const BudgetMain = () => {
         
         </div>
       </div>
+      <div>
         <Link to='/totaldisplay'>
         <button className="btn">Input Spending</button>
         </Link>
         <Link to='/newbudget'>
         <button className="btn">Input New Budget</button>
         </Link>
+        </div>
       </div>
 
       <BarChart budget={budgetState} spending={spendingState}/>
