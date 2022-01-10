@@ -1,16 +1,20 @@
 {
   "name": "scratch-project",
-  "version": "0.1",
+  "version": "0.1.0",
   "description": "",
   "type": "module",
   "main": "server/server.js",
   "scripts": {
-    "start": "NODE_ENV=production nodemon server/server.js",
-    "build": "NODE_ENV=production webpack",
-    "dev": "concurrently \"NODE_ENV=development webpack serve --open\" \"nodemon --experimental-specifier-resolution=node server/server.js\""
+    "start": "NODE_ENV=development nodemon server/server.js",
+    "build": "NODE_ENV=development webpack",
+    "dev": "concurrently \"NODE_ENV=development webpack serve --open\" \"nodemon server/server.js\""
   },
+  "proxy": "http://localhost:3000/",
   "dependencies": {
+    "@reduxjs/toolkit": "^1.7.1",
     "browser-router": "^0.2.0",
+    "chart.js": "^3.7.0",
+    "cors": "^2.8.5",
     "css-loader": "^6.5.1",
     "dot-env": "^0.0.1",
     "dotenv": "^10.0.0",
@@ -26,6 +30,7 @@
     "passport-google-oidc": "^0.1.0",
     "pg": "^8.7.1",
     "react": "^17.0.2",
+    "react-chartjs-2": "^4.0.0",
     "react-dom": "^17.0.2",
     "react-hook-form": "^7.22.5",
     "react-redux": "^7.2.6",
